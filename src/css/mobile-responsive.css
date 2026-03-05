@@ -1,0 +1,1243 @@
+/* =====================================================
+   MOBILE RESPONSIVE — Kifyie Portfolio
+   Loaded AFTER styles-v2.css, card-stack.css, letter-swap.css
+   Uses @media queries + html[data-mobile] / html[data-touch] selectors
+   ===================================================== */
+
+/* =====================================================
+   1. CSS HARDWARE ACCELERATION HINTS
+   Target all frequently-animated elements for GPU compositing
+   ===================================================== */
+.cs-card,
+.motion-trail-wrapper .trail-img,
+.dropdown-menu,
+.dropdown-link,
+.hero-marquee__track,
+.project-placeholder,
+.fp-btn .fp-btn-bg,
+.preloader-column,
+.reveal {
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+/* Force GPU layer on elements animated by GSAP/Framer Motion */
+.cs-card,
+.motion-trail-wrapper .trail-img,
+.project-placeholder {
+    transform: translateZ(0);
+}
+
+/* =====================================================
+   2. TOUCH DEVICE — HOVER FALLBACKS
+   Replace all hover-only states with :active/:focus on touch
+   ===================================================== */
+@media (hover: none) {
+
+    /* --- Navigation --- */
+    .nav-menu-btn:hover {
+        color: inherit;
+    }
+
+    .nav-menu-btn:hover::before {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    .nav-menu-btn:active {
+        color: var(--bg-primary);
+    }
+
+    .nav-menu-btn:active::before {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    .nav-contact:hover {
+        color: inherit;
+        background-color: transparent;
+    }
+
+    .nav-contact:active {
+        color: #000000;
+        background-color: #ffffff;
+    }
+
+    .nav-center:hover .nav-line {
+        width: 40px;
+        /* Reset to un-hovered on mobile */
+        opacity: 0.6;
+    }
+
+    /* --- Dropdown links --- */
+    .dropdown-link:hover {
+        color: inherit;
+        background-color: transparent;
+        transform: none;
+    }
+
+    .dropdown-link:active {
+        color: #000000;
+        background-color: rgba(255, 255, 255, 0.9);
+    }
+
+    /* --- Service cards --- */
+    .service-card:hover {
+        border-color: var(--border);
+        transform: none;
+    }
+
+    .service-card:active {
+        border-color: var(--accent-cyan);
+    }
+
+    /* --- Project cards --- */
+    .project-card:hover .project-placeholder {
+        transform: none;
+    }
+
+    /* --- Buttons --- */
+    .btn-primary:hover {
+        background: var(--accent-cyan);
+        box-shadow: none;
+        transform: none;
+    }
+
+    .btn-primary:active {
+        background: #33ddff;
+        transform: translateY(-1px);
+    }
+
+    .btn-secondary:hover {
+        border-color: var(--text-secondary);
+        background: transparent;
+    }
+
+    .btn-secondary:active {
+        border-color: var(--text-primary);
+        background: rgba(255, 255, 255, 0.05);
+    }
+
+    /* --- Text link underline --- */
+    .text-link:hover {
+        color: var(--text-secondary);
+    }
+
+    .text-link:hover::after {
+        width: 0;
+    }
+
+    .text-link:active {
+        color: var(--accent-cyan);
+    }
+
+    .text-link:active::after {
+        width: 100%;
+    }
+
+    /* --- Contact button --- */
+    .contact-btn:hover {
+        transform: none;
+        background: #ffffff;
+        color: #000;
+        box-shadow: none;
+    }
+
+    .contact-btn:active {
+        background: #e84225;
+        color: #fff;
+        box-shadow: 0 8px 24px rgba(232, 66, 37, 0.35);
+    }
+
+    /* --- Hero card CTA --- */
+    .hero-card-cta:hover {
+        transform: none;
+        box-shadow: none;
+    }
+
+    .hero-card-cta:active {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 16px rgba(255, 255, 255, 0.15);
+    }
+
+    /* --- Process steps --- */
+    .process-step:hover {
+        border-color: var(--border);
+        background: var(--bg-elevated);
+    }
+
+    .process-step:active {
+        border-color: var(--accent-cyan);
+        background: var(--bg-card);
+    }
+
+    /* --- Footer links --- */
+    .footer-link:hover {
+        color: rgba(255, 255, 255, 0.5);
+        transform: none;
+    }
+
+    .footer-link:active {
+        color: #e84225;
+    }
+
+    .footer-logo-text:hover {
+        color: #fff;
+    }
+
+    .footer-logo-text:active {
+        color: #e84225;
+    }
+
+    .footer-email-link:hover {
+        color: rgba(255, 255, 255, 0.6);
+    }
+
+    .footer-email-link:active {
+        color: #e84225;
+    }
+
+    /* --- Marquee pause on hover disabled --- */
+    .hero-marquee:hover .hero-marquee__text {
+        animation-play-state: running;
+    }
+
+    /* --- Nav logo --- */
+    .nav-logo:hover {
+        color: inherit;
+    }
+
+    .nav-logo:active {
+        color: #fd321c;
+    }
+}
+
+
+/* =====================================================
+   2b. TABLET LAYOUT OVERRIDES — 768px to 1024px
+   Targets: iPad Mini, iPad Air, iPad 10th gen, Galaxy Tab, etc.
+   ===================================================== */
+@media (min-width: 768px) and (max-width: 1024px) {
+
+    /* --- Navbar: force desktop 3-column layout on tablets --- */
+    .nav-container {
+        grid-template-columns: 1fr auto 1fr !important;
+        gap: 2rem !important;
+        padding: 0 var(--container-padding) !important;
+    }
+
+    .nav-contact {
+        display: block !important;
+        justify-self: end;
+    }
+
+    /* --- Hero: adjust text and spacing for tablets --- */
+    .hero-big-text {
+        top: 12% !important;
+    }
+
+    .hero-big-text-line {
+        font-size: clamp(60px, 14vw, 160px) !important;
+    }
+
+    .hero-bottom {
+        bottom: 2rem !important;
+        padding: 0 2rem 5rem !important;
+    }
+
+    .hero-description-block p {
+        font-size: 14px;
+    }
+
+    .hero-location {
+        bottom: 14rem;
+    }
+
+    /* --- WHO I AM: reduce oversized heading --- */
+    .who-line {
+        font-size: clamp(80px, 14vw, 180px) !important;
+    }
+
+    .who-i-am-inner {
+        padding: 40px 2.5rem;
+    }
+
+    .who-intro {
+        font-size: clamp(22px, 3.5vw, 36px) !important;
+    }
+
+    .who-detail-text {
+        font-size: clamp(22px, 3.5vw, 36px) !important;
+    }
+
+    /* --- MY WORKS / TECHNOLOGIES Marquee: scale down --- */
+    .marquee-item {
+        font-size: clamp(80px, 12vw, 160px) !important;
+    }
+
+    /* --- Card stack: fit within viewport --- */
+    .cardstack-section {
+        padding: 2rem 0;
+    }
+
+    .cs-wrapper {
+        overflow: visible;
+    }
+
+    .cs-stage {
+        overflow: visible;
+    }
+
+    /* --- Featured projects: proper 2-col layout --- */
+    .fp-row,
+    .fp-row-reverse {
+        grid-template-columns: 1fr !important;
+        gap: 0.8rem !important;
+    }
+
+    /* Always show info above image on tablets */
+    .fp-row .fp-info,
+    .fp-row-reverse .fp-info,
+    .fp-row-reverse .fp-info-right {
+        order: 1 !important;
+        align-items: flex-start !important;
+        text-align: left !important;
+    }
+
+    .fp-row .fp-image-link,
+    .fp-row-reverse .fp-image-link {
+        order: 2 !important;
+    }
+
+    .fp-title {
+        font-size: clamp(2rem, 5vw, 3.5rem) !important;
+    }
+
+    .featured-projects {
+        gap: 2rem !important;
+        padding: 1rem 0 0 !important;
+    }
+
+    .fp-info,
+    .fp-info-right {
+        gap: 0.3rem !important;
+    }
+
+    .fp-subtitle {
+        margin: 0.15rem 0 0.5rem !important;
+    }
+
+    .fp-image {
+        aspect-ratio: 16 / 9 !important;
+    }
+
+    /* --- Feedback / Testimonials --- */
+    .tp-heading {
+        font-size: clamp(60px, 10vw, 120px) !important;
+    }
+
+    /* --- Contact section --- */
+    .contact-title {
+        font-size: clamp(3rem, 8vw, 5rem);
+    }
+
+    /* --- Services grid: 2 columns for tablets --- */
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* --- Scroll parallax: appropriate sizing --- */
+    .parallax-card {
+        width: 320px;
+        height: 420px;
+    }
+
+    /* --- Nav lines: slightly smaller for tablet --- */
+    .nav-line {
+        width: 60px;
+    }
+
+    .nav-center:hover .nav-line {
+        width: 100px;
+    }
+
+    /* --- Global overflow containment --- */
+    html,
+    body {
+        overflow-x: hidden;
+    }
+}
+
+
+/* =====================================================
+   3. MOBILE LAYOUT OVERRIDES — 768px and below
+   ===================================================== */
+@media (max-width: 768px) {
+
+    /* --- GLOBAL OVERFLOW CONTAINMENT --- */
+    html {
+        overflow-x: hidden;
+    }
+
+    body {
+        overflow-x: hidden;
+        max-width: 100vw;
+    }
+
+    /* --- Navigation: tighten for mobile --- */
+    .nav-container {
+        padding: 0 1.25rem;
+        gap: 1rem;
+    }
+
+    .nav-line {
+        width: 50px;
+    }
+
+    .nav-center:hover .nav-line {
+        width: 70px;
+    }
+
+    .nav-center {
+        gap: 1rem;
+    }
+
+    .nav-contact {
+        display: none;
+    }
+
+    /* Dropdown links: smaller on mobile */
+    .dropdown-link {
+        font-size: 32px;
+        line-height: 36px;
+        padding: 4px 14px;
+    }
+
+    .dropdown-menu {
+        height: auto;
+        min-height: 320px;
+        padding: 5rem 1.5rem 2rem;
+    }
+
+    /* --- Root spacing adjustments --- */
+    :root {
+        --section-gap: clamp(3rem, 8vh, 5rem);
+        --container-padding: clamp(1rem, 4vw, 2rem);
+    }
+
+    /* --- Main content padding reduction --- */
+    .main-content {
+        padding: 40px 20px;
+        padding-top: 5rem;
+    }
+
+    /* --- Navigation: 2-column (logo + menu) --- */
+    .nav-container {
+        grid-template-columns: 1fr auto;
+        gap: 1rem;
+    }
+
+    .nav-contact {
+        display: none;
+        /* Move contact to dropdown on mobile */
+    }
+
+    /* --- Dropdown menu: full height on mobile --- */
+    .dropdown-menu {
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 100vh;
+        height: 100dvh;
+        border-radius: 0;
+    }
+
+    .dropdown-link {
+        font-size: 2rem;
+        line-height: 2.5rem;
+        padding: 8px 16px;
+    }
+
+    /* --- Hero section: override inline calc(100vh + 7rem) to prevent black gap --- */
+    .hero {
+        min-height: 100vh !important;
+        min-height: 100svh !important;
+        margin-top: 0 !important;
+    }
+
+    .main-content {
+        padding-top: 0 !important;
+    }
+
+    .hero-content-overlay {
+        padding-top: 40px;
+        gap: 1.25rem;
+    }
+
+    .hero-content-overlay .intro-text {
+        font-size: 16px;
+        max-width: 90vw;
+        padding: 0 0.5rem;
+    }
+
+    /* --- Hero marquee text size --- */
+    .hero-marquee__text {
+        font-size: clamp(60px, 14vw, 120px);
+    }
+
+    /* --- Hero blur edges smaller --- */
+    .hero-blur-left,
+    .hero-blur-right {
+        width: 3rem;
+    }
+
+    /* --- Motion trail wrapper (hero portrait) --- */
+    .motion-trail-wrapper {
+        width: 70vw;
+        height: calc(70vw * 1.33);
+        max-width: 320px;
+        max-height: 426px;
+    }
+
+    /* --- Who I Am section --- */
+    .who-i-am::before {
+        display: none !important;
+    }
+
+    .who-i-am-inner {
+        grid-template-columns: 1fr;
+        padding: 30px 20px;
+        gap: 30px;
+    }
+
+    .who-line {
+        font-size: clamp(50px, 14vw, 120px);
+    }
+
+    .who-portrait-wrapper {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .who-portrait-wrapper img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* --- Hero bottom area (from inline styles) --- */
+    .hero-bottom {
+        padding: 0 1rem 1.5rem;
+        gap: 1.25rem;
+    }
+
+    .hero-card {
+        width: 220px;
+    }
+
+    .hero-description-block {
+        max-width: 100%;
+    }
+
+    .hero-description-block p {
+        font-size: 13px;
+    }
+
+    /* --- Hero big text (from inline styles) --- */
+    .hero-big-text-line {
+        font-size: clamp(60px, 20vw, 140px) !important;
+        font-weight: 900 !important;
+        letter-spacing: -0.02em;
+        text-shadow: none;
+    }
+
+    .hero-since {
+        top: calc(1.5rem + clamp(40px, 10vw, 100px));
+        font-size: 11px;
+    }
+
+    .hero-location {
+        bottom: 12rem;
+        left: 1rem;
+    }
+
+    /* --- Services grid: single column --- */
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-card {
+        padding: 1.5rem;
+    }
+
+    .service-number {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    /* --- Work/Projects grid: single column --- */
+    .work-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-featured {
+        grid-column: auto;
+    }
+
+    .project-featured .project-image {
+        aspect-ratio: 16 / 10;
+    }
+
+    /* --- Featured Projects section (fp- classes from inline HTML) --- */
+    .fp-row,
+    .fp-row-reverse {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
+
+    .fp-row>*:first-child {
+        order: 0;
+    }
+
+    .fp-row-reverse>*:first-child {
+        order: 0;
+        /* Image first on mobile for both normal and reverse */
+    }
+
+    .fp-img-wrapper {
+        max-height: 50vh;
+    }
+
+    /* --- Card stack section --- */
+    .cardstack-section {
+        padding: 2rem 0;
+        overflow: hidden;
+    }
+
+    .cs-wrapper {
+        overflow: visible;
+    }
+
+    .cs-stage {
+        overflow: visible;
+    }
+
+    .cs-card {
+        max-width: none;
+    }
+
+    /* --- Gallery/3D sections: constrained height --- */
+    .gallery-section,
+    .slider-wrapper {
+        height: 50vh;
+        min-height: 300px;
+        max-height: 450px;
+    }
+
+    /* Hero slider must fill the full hero height */
+    .hero-lumina-bg,
+    .hero-lumina-bg .slider-wrapper {
+        height: 100%;
+        min-height: 100vh;
+        min-height: 100svh;
+        max-height: none;
+    }
+
+    /* --- Contact section: compact spacing --- */
+    .contact-section {
+        padding: 4rem 1.5rem 3rem;
+    }
+
+    .contact-accent-line {
+        height: 40px;
+        margin-bottom: 1.5rem;
+    }
+
+    .contact-title {
+        font-size: clamp(3rem, 10vw, 6rem);
+    }
+
+    .contact-btn {
+        padding: 1rem 2.5rem;
+        font-size: 0.8rem;
+    }
+
+    /* --- Footer: centered vertical stack --- */
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.25rem;
+    }
+
+    .footer-left {
+        align-items: center;
+    }
+
+    .footer-right {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .back-to-top {
+        margin-left: 0;
+        padding-left: 0;
+        border-left: none;
+    }
+
+    /* --- ZM Footer overrides (inline style footer) --- */
+    .zm-footer {
+        padding: 40px 20px 0;
+        overflow: hidden;
+    }
+
+    .zm-footer-main {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .zm-footer-right {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .zm-footer-nav-link {
+        font-size: 2rem;
+        line-height: 1.2;
+        letter-spacing: -1px;
+        padding: 2px 10px;
+    }
+
+    .zm-footer-bottom {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+        text-align: center;
+    }
+
+    .zm-footer-socials {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+        max-width: 100%;
+    }
+
+    .glassy-social-icon {
+        width: 44px;
+        height: 44px;
+    }
+
+    .glassy-social-icon svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    /* --- Footer marquee overflow --- */
+    .zm-footer-marquee {
+        overflow: hidden;
+        max-width: 100vw;
+        padding: 20px 0 !important;
+    }
+
+    .zm-footer-marquee-text {
+        line-height: 1.1 !important;
+    }
+
+    /* --- Solution cards --- */
+    .solution-card {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    /* --- Launching soon section --- */
+    .launching-soon {
+        overflow: hidden;
+    }
+
+    .ls-container {
+        max-width: 100%;
+    }
+
+    /* --- Testimonials / Feedbacks section --- */
+    .testimonials-parallax {
+        overflow: hidden;
+        padding-top: 60px !important;
+    }
+
+    .tp-heading {
+        font-size: clamp(40px, 14vw, 80px) !important;
+        letter-spacing: -3px !important;
+        line-height: 1.1 !important;
+    }
+
+    .tp-sticky {
+        position: relative !important;
+        height: auto !important;
+        padding: 2rem 0;
+    }
+
+    .tp-cards-layer {
+        padding-top: 2rem !important;
+        gap: 2rem !important;
+    }
+
+    .tp-row-pair {
+        flex-direction: column !important;
+        gap: 2rem !important;
+        align-items: center !important;
+        padding: 0 16px !important;
+    }
+
+    .tp-row-center {
+        flex-direction: column !important;
+        gap: 2rem !important;
+        align-items: center !important;
+        padding: 0 16px !important;
+    }
+
+    .tp-card-offset-wrap {
+        padding-top: 0 !important;
+    }
+
+    .tp-card {
+        max-width: calc(100vw - 48px);
+        width: 100% !important;
+    }
+
+    .tp-cta-btn {
+        font-size: 16px !important;
+        padding: 10px 16px !important;
+    }
+
+    /* --- Full-width sections overflow containment --- */
+    .who-i-am,
+    .hero,
+    section:not(.scroll-parallax) {
+        max-width: 100vw;
+        overflow-x: hidden;
+    }
+
+    /* --- Scroll parallax section: JS pinning for mobile --- */
+    #scroll-parallax {
+        overflow: clip;
+        max-width: 100vw;
+    }
+
+    .scroll-parallax-sticky {
+        position: relative;
+        overflow: visible !important;
+    }
+
+    .scroll-parallax-viewport {
+        overflow: visible !important;
+        transform: scale(0.75);
+        transform-origin: center center;
+    }
+
+    .scroll-parallax-trigger {
+        height: 2500px !important;
+    }
+
+    .parallax-arm {
+        width: 350px !important;
+        height: 160px !important;
+    }
+
+    .parallax-card-container {
+        width: 200px !important;
+        height: 135px !important;
+        top: calc(50% - 67px) !important;
+        left: calc(0% - 100px) !important;
+    }
+
+    .parallax-card-bg {
+        height: 135px !important;
+    }
+
+    .parallax-card-text {
+        transform: scale(0.7);
+    }
+
+    /* --- Scroll progress bar: thinner, closer to edge --- */
+    .scroll-progress {
+        right: 10px;
+        width: 3px;
+        height: 80px;
+    }
+
+    /* --- Reveal animations: reduce travel distance --- */
+    .reveal {
+        transform: translateY(24px);
+    }
+
+    /* --- Process steps: stack vertically on small screens --- */
+    .process-step {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.75rem;
+        padding: 1.25rem 1.5rem;
+    }
+
+    .process-content {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    /* --- Trading stats: vertical on mobile --- */
+    .trading-stats {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .stat {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+/* =====================================================
+   3b. IPHONE XR / STANDARD MOBILE (≤ 430px)
+   ===================================================== */
+@media (max-width: 430px) {
+    .main-content {
+        padding: 40px 16px;
+        padding-top: 5rem;
+    }
+
+    /* Navigation: only show centered MENU on iPhone XR */
+    .nav-logo,
+    .nav-logo.letter-swap {
+        display: none !important;
+    }
+
+    .nav-container {
+        padding: 0 1rem;
+        gap: 0;
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+
+    .nav-center {
+        justify-self: center;
+        gap: 1.25rem;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .nav-line {
+        flex: 1;
+        width: auto;
+        max-width: 120px;
+    }
+
+    .nav-center:hover .nav-line {
+        width: auto;
+        max-width: 140px;
+    }
+
+    .nav-menu-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.75rem;
+        letter-spacing: 0.25em;
+    }
+
+    /* Dropdown: compact for narrow screens */
+    .dropdown-link {
+        font-size: 28px;
+        line-height: 32px;
+    }
+
+    .dropdown-menu {
+        left: 0.35rem;
+        right: 0.35rem;
+        padding: 4.5rem 1rem 1.5rem;
+    }
+
+    /* Hero text position: push down on mobile */
+    .hero-big-text {
+        top: 25% !important;
+    }
+
+    /* Hero text: big and bold for iPhone XR / Samsung S20 */
+    .hero-big-text-line {
+        font-size: clamp(64px, 25vw, 110px) !important;
+        font-weight: 900 !important;
+        letter-spacing: -0.03em;
+        text-shadow: none;
+        word-break: break-word;
+        max-width: 100%;
+    }
+
+    .hero-content-overlay {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .hero-bottom {
+        padding: 0 16px 2rem;
+        bottom: 0;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hero-description-block {
+        max-width: 100%;
+        z-index: 5;
+    }
+
+    .hero-description-block p {
+        font-size: 12px;
+        line-height: 1.55;
+        color: rgba(255, 255, 255, 0.65);
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+    }
+
+    /* Who I Am portrait */
+    .who-i-am-inner {
+        padding: 30px 16px;
+    }
+
+    .who-portrait-wrapper {
+        max-width: calc(100vw - 32px);
+    }
+
+    /* Card stack: scale entire fan to fit narrow viewport */
+    .cs-wrapper {
+        max-width: 100vw !important;
+        overflow: visible !important;
+    }
+
+    .cs-stage {
+        transform: scale(0.65);
+        transform-origin: center center;
+        margin-top: -3rem;
+        margin-bottom: -3rem;
+        overflow: visible !important;
+    }
+
+    .cs-card {
+        max-width: none;
+    }
+
+    /* Featured Projects: organized layout for narrow screens */
+    .featured-projects {
+        gap: 3rem !important;
+        padding: 1.5rem 0 0 !important;
+    }
+
+    .fp-row,
+    .fp-row-reverse {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+    }
+
+    /* Always show: info first, image second */
+    .fp-row .fp-info,
+    .fp-row-reverse .fp-info,
+    .fp-row-reverse .fp-info-right {
+        order: 1 !important;
+        align-items: flex-start !important;
+        text-align: left !important;
+    }
+
+    .fp-row .fp-image-link,
+    .fp-row-reverse .fp-image-link {
+        order: 2 !important;
+    }
+
+    .fp-title {
+        font-size: clamp(2.2rem, 12vw, 3.5rem) !important;
+    }
+
+    .fp-image {
+        width: 100% !important;
+        max-width: 100% !important;
+        border-radius: 10px !important;
+    }
+
+    .fp-image img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+    }
+
+    .fp-btn {
+        padding: 0.6rem 1.4rem !important;
+        font-size: 0.7rem !important;
+    }
+
+    /* Footer socials: smaller on very narrow */
+    .glassy-social-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .glassy-social-icon svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .zm-footer-socials {
+        gap: 10px;
+    }
+
+    /* Footer nav links */
+    .zm-footer-nav-link {
+        font-size: 1.75rem;
+    }
+
+    /* Testimonial cards */
+    .tp-card,
+    .tp-row-center .tp-card {
+        max-width: calc(100vw - 32px);
+    }
+
+    /* Solution cards */
+    .solution-card {
+        max-width: calc(100vw - 32px);
+    }
+}
+
+/* =====================================================
+   4. SMALL MOBILE (≤ 480px)
+   ===================================================== */
+@media (max-width: 480px) {
+    .hero {
+        min-height: 60vh;
+    }
+
+    .hero-marquee__text {
+        font-size: clamp(44px, 12vw, 80px);
+    }
+
+    .hero-content-overlay .intro-text {
+        font-size: 14px;
+    }
+
+    .motion-trail-wrapper {
+        width: 80vw;
+        height: calc(80vw * 1.33);
+    }
+
+    .hero-card {
+        width: 200px;
+    }
+
+    .hero-card-image {
+        height: 160px;
+    }
+
+    .dropdown-link {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+
+    .who-line {
+        font-size: clamp(40px, 12vw, 80px);
+    }
+
+    .contact-title {
+        font-size: clamp(2.5rem, 9vw, 5rem);
+    }
+
+    .service-card {
+        padding: 1.25rem;
+    }
+}
+
+/* =====================================================
+   5. TOUCH DEVICE — IDLE ANIMATION FALLBACK
+   For when the motion trail cannot use mouse tracking
+   ===================================================== */
+@media (hover: none) and (pointer: coarse) {
+    .motion-trail-wrapper.touch-idle-animation .trail-img {
+        animation: touchIdleFloat 6s ease-in-out infinite alternate;
+    }
+
+    .motion-trail-wrapper.touch-idle-animation .trail-img:nth-child(2) {
+        animation-delay: -1.5s;
+        animation-duration: 7s;
+    }
+
+    .motion-trail-wrapper.touch-idle-animation .trail-img:nth-child(3) {
+        animation-delay: -3s;
+        animation-duration: 5.5s;
+    }
+
+    .motion-trail-wrapper.touch-idle-animation .trail-img:nth-child(4) {
+        animation-delay: -0.5s;
+        animation-duration: 6.5s;
+    }
+}
+
+@keyframes touchIdleFloat {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    25% {
+        transform: translate(4px, -6px) rotate(0.5deg);
+    }
+
+    50% {
+        transform: translate(-3px, 3px) rotate(-0.3deg);
+    }
+
+    75% {
+        transform: translate(5px, -2px) rotate(0.4deg);
+    }
+
+    100% {
+        transform: translate(-2px, 5px) rotate(-0.5deg);
+    }
+}
+
+/* =====================================================
+   6. REDUCED MOTION — ACCESSIBILITY
+   Disable all animations for users who prefer no motion
+   ===================================================== */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .hero-marquee__track {
+        animation: none;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* =====================================================
+   7. LANDSCAPE MOBILE — prevent canvas from growing too tall
+   ===================================================== */
+@media (max-height: 500px) and (orientation: landscape) {
+    .hero {
+        min-height: auto;
+        height: 100vh;
+    }
+
+    .gallery-section,
+    .slider-wrapper {
+        height: 80vh;
+        max-height: 350px;
+    }
+
+    .motion-trail-wrapper {
+        width: 35vw;
+        height: calc(35vw * 1.33);
+    }
+
+    .hero-content-overlay {
+        padding-top: 20px;
+    }
+}

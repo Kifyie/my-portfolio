@@ -1,0 +1,3814 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kifyie | Creative Dev & Interactive Designer</title>
+    <meta name="description"
+        content="Kifyie is a creative developer and interactive designer specializing in premium web experiences, brand identity, and immersive 3D interfaces. View my portfolio.">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <meta property="og:title" content="Kifyie | Creative Dev & Interactive Designer">
+    <meta property="og:description"
+        content="Discover premium web experiences, brand identity, and immersive 3D interfaces.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kifyie.pro/">
+    <meta property="og:image" content="https://kifyie.pro/og-image.webp">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://kifyie.pro/">
+
+    <!-- Resource Hints & SEO Script -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Chris Bryan",
+      "url": "https://kifyie.pro",
+      "jobTitle": "UI/UX Designer & Web Developer",
+      "knowsAbout": ["React", "Next.js", "Figma", "3D Animation", "FL Studio"],
+      "sameAs": [
+        "https://github.com/EpicVoxel",
+        "https://twitter.com/YourHandle"
+      ]
+    }
+    </script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anybody:wght@700;800;900&family=Bebas+Neue&family=Inter:wght@400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Open+Sans:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
+        rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Anybody:wght@700;800;900&family=Bebas+Neue&family=Inter:wght@400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Open+Sans:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap">
+    </noscript>
+    <!-- Early device detection for CSS branching -->
+    <script>
+        (function () {
+            var t = matchMedia('(pointer:coarse)').matches;
+            var m = t && screen.width <= 768;
+            if (m) document.documentElement.dataset.mobile = '';
+            if (t) document.documentElement.dataset.touch = '';
+        })();
+    </script>
+    <link rel="stylesheet" href="./src/css/styles-v2.css">
+    <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/telegraf" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/telegraf">
+    </noscript>
+    <link rel="stylesheet" href="./src/css/letter-swap.css">
+    <link rel="stylesheet" href="./src/css/mobile-responsive.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Archiv Grotesk font */
+        @font-face {
+            font-family: 'Archiv Grotesk';
+            src: url('/fonts/ArchivGrotesk-Regular.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: #050505;
+            color: #ffffff;
+            overflow-x: hidden;
+            cursor: none;
+        }
+
+        /* ===== CUSTOM CURSOR (Billie Duvalle style) ===== */
+        .custom-cursor {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 130px;
+            height: 130px;
+            pointer-events: none;
+            z-index: 99999;
+            mix-blend-mode: difference;
+            opacity: 0;
+            transform: translate(-50%, -50%);
+            will-change: transform;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .custom-cursor.visible {
+            opacity: 1;
+        }
+
+        /* The inner circle that scales */
+        .cursor-dot {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 1000px;
+            background: #ffffff;
+            border: 8px solid #ffffff;
+            transform: scale(0.1);
+            transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1),
+                background 0.3s cubic-bezier(0.19, 1, 0.22, 1),
+                border-color 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        /* Arrow icon (hidden by default) */
+        .cursor-arrow {
+            position: relative;
+            z-index: 1;
+            width: 80px;
+            height: 80px;
+            opacity: 0;
+            transform: scale(0.4);
+            transition: opacity 0.35s cubic-bezier(0.25, 1, 0.5, 1),
+                transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        /* Hover state for interactive elements (slight scale up) */
+        .custom-cursor.hover .cursor-dot {
+            transform: scale(0.35);
+        }
+
+        /* Card hover: full expand + outline style + show arrow */
+        .custom-cursor.card-hover .cursor-dot {
+            transform: scale(1);
+            background: transparent;
+        }
+
+        .custom-cursor.card-hover .cursor-arrow {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Hide cursor on all interactive elements too */
+        a,
+        button,
+        .work-card,
+        .hero-card-cta,
+        .nav-menu-btn,
+        .service-card,
+        .footer-cta,
+        input,
+        textarea,
+        select,
+        [role="button"],
+        .cs-card,
+        .cs-card *,
+        #cardstack-root,
+        #cardstack-root * {
+            cursor: none;
+        }
+
+        /* Hide custom cursor on touch devices */
+        @media (hover: none) and (pointer: coarse) {
+            .custom-cursor {
+                display: none !important;
+            }
+
+            body,
+            a,
+            button,
+            .work-card,
+            .hero-card-cta,
+            .nav-menu-btn,
+            .service-card,
+            .footer-cta,
+            input,
+            textarea,
+            select,
+            [role="button"] {
+                cursor: auto;
+            }
+        }
+
+        /* ===== PRELOADER STYLES — Modo-Style ===== */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            pointer-events: none;
+        }
+
+        /* Counter overlay — white screen with centered percentage */
+        .preloader-counter-screen {
+            position: absolute;
+            inset: 0;
+            background-color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+
+        .preloader-counter {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 700;
+            color: #000000;
+            letter-spacing: -0.02em;
+            user-select: none;
+        }
+
+        /* Column reveal overlay — 6 vertical columns */
+        .preloader-columns {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            gap: 0;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .preloader-column {
+            flex: 1;
+            height: 100%;
+            background-color: #c74e00;
+            will-change: transform;
+            margin-left: -1px;
+            padding-left: 1px;
+        }
+
+        /* ===== MAIN CONTENT STYLES ===== */
+        .main-content {
+            min-height: 100vh;
+            padding: 60px 40px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.6s ease-out, visibility 0.6s ease-out;
+            background-color: #050505;
+            position: relative;
+        }
+
+
+
+        .main-content.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .main-content>* {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Navigation - handled by styles.css */
+        /* Extra padding-top for fixed nav clearance */
+        .main-content {
+            padding-top: 7rem;
+        }
+
+        /* Hero Section — Mugen Studio Style */
+        .hero {
+            position: relative;
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            margin-top: -7rem;
+            min-height: calc(100vh + 7rem);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            overflow: hidden;
+            padding: 0;
+        }
+
+        /* B&W Background */
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            background:
+                radial-gradient(ellipse at 50% 40%, rgba(5, 5, 5, 0) 0%, rgba(5, 5, 5, 0.4) 60%, rgba(5, 5, 5, 0.95) 100%),
+                linear-gradient(180deg, rgba(5, 5, 5, 0.3) 0%, transparent 30%, transparent 70%, rgba(5, 5, 5, 0.6) 100%);
+            background-color: #0a0a0a;
+        }
+
+        .hero-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.35;
+            filter: contrast(1.1);
+        }
+
+        /* Massive Background Text */
+        .hero-big-text {
+            position: absolute;
+            top: 15%;
+            left: 0;
+            right: 0;
+            z-index: 1;
+            pointer-events: none;
+            padding: 0 2rem;
+        }
+
+        .hero-big-text-line {
+            font-family: 'Inter', sans-serif;
+            font-weight: 800;
+            font-size: clamp(80px, 18vw, 320px);
+            line-height: 0.88;
+            letter-spacing: -0.04em;
+            text-transform: uppercase;
+            margin: 0;
+            padding: 0;
+        }
+
+        .hero-big-text-line:first-child {
+            color: #ffffff;
+            text-align: left;
+        }
+
+        .hero-big-text-line:last-child {
+            color: rgba(255, 255, 255, 0.25);
+            text-align: right;
+        }
+
+        /* Since Label */
+        .hero-since {
+            position: absolute;
+            top: calc(2rem + clamp(80px, 18vw, 320px));
+            left: 2rem;
+            z-index: 2;
+            font-size: 13px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.8);
+            letter-spacing: 0.02em;
+        }
+
+        /* Hero Location Badge */
+        .hero-location {
+            position: absolute;
+            bottom: 16rem;
+            left: 2rem;
+            z-index: 4;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .hero-location-icon {
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            /* filter applied dynamically via JS for non-white icons */
+        }
+
+        .hero-location-text {
+            font-family: 'Inter', 'Open Sans', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.45;
+        }
+
+        /* Hero Bottom Content Area */
+        .hero-bottom {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 3;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-start;
+            padding: 0 3rem 7.5rem;
+            gap: 2rem;
+            width: 100%;
+        }
+
+        /* Social Proof — Bottom Left */
+        .hero-social-proof {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            flex-shrink: 0;
+        }
+
+        .hero-avatars {
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 2px solid #141414;
+            margin-right: -10px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #444, #222);
+        }
+
+        .hero-avatar:nth-child(1) {
+            background: linear-gradient(135deg, #6366f1, #4f46e5);
+        }
+
+        .hero-avatar:nth-child(2) {
+            background: linear-gradient(135deg, #ec4899, #db2777);
+        }
+
+        .hero-avatar:nth-child(3) {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+        }
+
+        .hero-avatar:nth-child(4) {
+            background: linear-gradient(135deg, #10b981, #059669);
+        }
+
+        .hero-avatar-you {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 2px solid #141414;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .hero-rating {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .hero-stars {
+            color: #f5c518;
+            font-size: 12px;
+            letter-spacing: 2px;
+        }
+
+        .hero-rating-text {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 500;
+        }
+
+        .hero-clients-text {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.45);
+            font-weight: 400;
+        }
+
+        /* Profile Card — Center */
+        .hero-card {
+            width: 260px;
+            background: rgba(20, 20, 20, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            overflow: hidden;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            flex-shrink: 0;
+            align-self: flex-end;
+            margin-bottom: 0;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-card-image {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .hero-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-card-image-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-card-image-placeholder svg {
+            width: 64px;
+            height: 64px;
+            opacity: 0.3;
+        }
+
+        .hero-card-badge {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 100px;
+            padding: 5px 12px;
+            font-size: 11px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .hero-card-badge-bars {
+            display: flex;
+            gap: 2px;
+            align-items: center;
+        }
+
+        .hero-card-badge-bars span {
+            width: 2px;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 1px;
+        }
+
+        .hero-card-body {
+            padding: 16px 18px;
+        }
+
+        .hero-card-name {
+            font-size: 16px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 2px;
+        }
+
+        .hero-card-role {
+            font-size: 13px;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .hero-card-divider {
+            width: 100%;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.08);
+            margin: 14px 0;
+        }
+
+        .hero-card-pricing {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 14px;
+        }
+
+        .hero-card-pricing-text {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .hero-card-pricing-text strong {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .hero-card-pricing-arrow {
+            width: 20px;
+            height: 20px;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .hero-card-cta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 12px 16px;
+            background: #ffffff;
+            color: #000000;
+            border: none;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .hero-card-cta:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 24px rgba(255, 255, 255, 0.15);
+        }
+
+        .hero-card-cta svg {
+            width: 16px;
+            height: 16px;
+            opacity: 0.5;
+        }
+
+        /* Description — Bottom Right */
+        .hero-description-block {
+            max-width: 380px;
+            text-align: left;
+            flex-shrink: 1;
+            position: relative;
+            z-index: 5;
+        }
+
+        .hero-description-block p {
+            font-size: 15px;
+            font-weight: 400;
+            line-height: 1.65;
+            color: rgba(255, 255, 255, 0.5);
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
+        }
+
+        .hero-description-block p strong {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        /* Hero Responsive */
+        @media (max-width: 1024px) {
+            .hero-bottom {
+                flex-direction: column;
+                align-items: center;
+                padding: 0 2rem 2rem;
+            }
+
+            .hero-social-proof {
+                order: 3;
+                align-items: center;
+            }
+
+            .hero-card {
+                order: 1;
+            }
+
+            .hero-description-block {
+                order: 2;
+                text-align: center;
+                max-width: 500px;
+            }
+
+            .hero-big-text-line {
+                font-size: clamp(60px, 14vw, 200px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-big-text-line {
+                font-size: clamp(48px, 12vw, 140px);
+            }
+
+            .hero-bottom {
+                padding: 0 1.5rem 2rem;
+            }
+
+            .hero-card {
+                width: 240px;
+            }
+        }
+
+        /* Lumina Slider as Hero Background */
+        .hero-lumina-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            overflow: hidden;
+            opacity: 0.45;
+        }
+
+        .hero-lumina-bg .slider-wrapper {
+            width: 100% !important;
+            height: 100% !important;
+            position: absolute;
+            inset: 0;
+        }
+
+        /* Hide slider UI elements — hero has its own content */
+        .hero-lumina-bg .slide-content,
+        .hero-lumina-bg .slides-navigation,
+        .hero-lumina-bg .slide-number,
+        .hero-lumina-bg .slide-total {
+            display: none !important;
+        }
+
+
+        /* ===== WHO I AM SECTION ===== */
+        .who-i-am {
+            position: relative;
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            background-color: #000000;
+            padding: 80px 0;
+            overflow: hidden;
+        }
+
+        .who-i-am::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 60%;
+            background: url('/images/about/who-bg.webp') center center / contain no-repeat;
+            opacity: 0.18;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .who-i-am>* {
+            position: relative;
+            z-index: 1;
+        }
+
+        .who-i-am-inner {
+            width: 100%;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 60px 60px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: stretch;
+        }
+
+        /* Left Big Text */
+        .who-left {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 40px;
+        }
+
+        /* Portrait Image */
+        .who-portrait-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 420px;
+            aspect-ratio: 3 / 4;
+            border-radius: 14px;
+            overflow: hidden;
+        }
+
+        .who-portrait-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 20%;
+            display: block;
+        }
+
+        .who-portrait-wrapper::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40%;
+            background: linear-gradient(to top, #000000 0%, transparent 100%);
+            pointer-events: none;
+        }
+
+        .who-big-text {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .who-line {
+            font-family: 'Agnes', serif;
+            font-weight: 400;
+            font-size: clamp(100px, 18vw, 260px);
+            line-height: 0.88;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            color: #c0211f;
+        }
+
+        /* Right Content */
+        .who-right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: space-between;
+        }
+
+        .who-text-group {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding-top: 280px;
+        }
+
+        .who-intro {
+            font-family: 'Archiv Grotesk', sans-serif;
+            font-size: clamp(28px, 3.5vw, 50px);
+            font-weight: 500;
+            line-height: 0.95;
+            color: rgba(255, 255, 255, 0.18);
+            text-transform: none;
+            letter-spacing: -0.027em;
+            text-align: left;
+        }
+
+        .who-details {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .who-detail-text {
+            font-family: 'Archiv Grotesk', sans-serif;
+            font-size: clamp(28px, 3.5vw, 50px);
+            font-weight: 500;
+            line-height: 0.95;
+            color: rgba(255, 255, 255, 0.18);
+            text-transform: none;
+            letter-spacing: -0.027em;
+            text-align: left;
+        }
+
+        /* Scroll-based word highlight */
+        .scroll-highlight-word {
+            color: #666666;
+            transition: color 0.25s ease;
+            display: inline;
+        }
+
+        .scroll-highlight-word.lit {
+            color: #ffffff;
+        }
+
+        /* Vertical Divider & Counter */
+        .who-divider {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+            margin-top: auto;
+            align-self: flex-end;
+        }
+
+        .who-divider-line {
+            width: 2px;
+            height: 100px;
+            background: #c0211f;
+            display: block;
+        }
+
+        .who-divider-counter {
+            font-family: 'Bebas Neue', Impact, sans-serif;
+            font-size: clamp(36px, 4vw, 56px);
+            font-weight: 400;
+            color: #c0211f;
+            letter-spacing: 0.04em;
+        }
+
+        /* WHO I AM Animations */
+        .who-anim {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .who-anim.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .who-anim[data-delay="1"] {
+            transition-delay: 0.12s;
+        }
+
+        .who-anim[data-delay="2"] {
+            transition-delay: 0.24s;
+        }
+
+        .who-anim[data-delay="3"] {
+            transition-delay: 0.36s;
+        }
+
+        .who-anim[data-delay="4"] {
+            transition-delay: 0.48s;
+        }
+
+        .who-anim[data-delay="5"] {
+            transition-delay: 0.6s;
+        }
+
+        /* Divider line grows from top */
+        .who-divider .who-divider-line {
+            transform-origin: top;
+            transform: scaleY(0);
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
+        }
+
+        .who-divider.visible .who-divider-line {
+            transform: scaleY(1);
+        }
+
+        /* WHO I AM Responsive */
+        @media (max-width: 900px) {
+            .who-i-am-inner {
+                grid-template-columns: 1fr;
+                gap: 32px;
+                padding: 40px 24px;
+                min-height: auto;
+            }
+
+            .who-right {
+                min-height: auto;
+                align-items: flex-start;
+            }
+
+            .who-intro,
+            .who-detail-text {
+                text-align: left;
+            }
+
+            .who-divider {
+                align-self: flex-start;
+                margin-top: 24px;
+            }
+
+            .who-line {
+                font-size: clamp(72px, 20vw, 160px);
+            }
+        }
+
+        /* ===== MY WORKS MARQUEE ===== */
+        .my-works-marquee {
+            position: relative;
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            background-color: #000000;
+            overflow: hidden;
+            padding: 20px 0;
+        }
+
+        .marquee-track {
+            display: flex;
+            align-items: center;
+            width: max-content;
+            animation: marqueeScroll 18s linear infinite;
+        }
+
+        .marquee-item {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(120px, 18vw, 284px);
+            font-weight: 500;
+            line-height: 1;
+            letter-spacing: -0.02em;
+            text-transform: uppercase;
+            white-space: nowrap;
+            padding: 0 6px;
+            user-select: none;
+        }
+
+        .marquee-item.filled {
+            color: #f5f5f5;
+        }
+
+        .marquee-item.outlined {
+            color: transparent;
+            -webkit-text-stroke: 1.8px rgba(245, 245, 245, 0.45);
+        }
+
+        @keyframes marqueeScroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+
+        /* ===== SOLUTIONS CARDS ===== */
+        .solutions-section {
+            position: relative;
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            background-color: #000000;
+            padding: 80px 40px 80px;
+        }
+
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .solution-card {
+            position: relative;
+            background: #0e0e0e;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 480px;
+            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.3s ease;
+            will-change: transform;
+        }
+
+        .solution-card:hover {
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        /* Full-bleed background image */
+        .solution-card-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .solution-card-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            opacity: 0.45;
+            transform: scale(1.05);
+            transition: opacity 0.5s ease, transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            will-change: transform;
+        }
+
+        .solution-card:hover .solution-card-bg img {
+            opacity: 0.55;
+        }
+
+        /* Dark gradient overlay for text readability */
+        .solution-card-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom,
+                    rgba(0, 0, 0, 0.25) 0%,
+                    rgba(0, 0, 0, 0.5) 40%,
+                    rgba(0, 0, 0, 0.8) 100%);
+            z-index: 1;
+        }
+
+        /* Card content on top of image */
+        .solution-card-content {
+            position: relative;
+            z-index: 2;
+            padding: 28px 24px 0;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .solution-card-title {
+            font-family: 'Bebas Neue', Impact, sans-serif;
+            font-size: clamp(26px, 2.5vw, 34px);
+            font-weight: 400;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: auto;
+            line-height: 1.1;
+        }
+
+        .solution-card-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .solution-card-list li {
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.7);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            line-height: 1;
+            padding: 12px 0;
+            border-top: 1px dashed rgba(255, 255, 255, 0.15);
+        }
+
+        .solution-card-list li:last-child {
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.15);
+        }
+
+        /* Number at bottom right */
+        .solution-card-number {
+            position: relative;
+            z-index: 2;
+            font-family: 'Bebas Neue', Impact, sans-serif;
+            font-size: clamp(56px, 6vw, 80px);
+            font-weight: 400;
+            color: #c0211f;
+            text-align: right;
+            padding: 12px 24px 20px;
+            line-height: 1;
+            letter-spacing: 0.02em;
+        }
+
+        /* Solutions card animations */
+        .solution-card {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.3s ease;
+        }
+
+        .solution-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 1100px) {
+            .solutions-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .solutions-section {
+                padding: 0 16px 60px;
+            }
+
+            .solutions-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .solution-card {
+                min-height: 400px;
+            }
+        }
+
+        /* ===== 3D Spiral Scroll Animation (Framer-exact) ===== */
+        .scroll-parallax {
+            position: relative;
+            background: #050505;
+            overflow: clip;
+        }
+
+        .scroll-parallax-spacer-top {
+            width: 100%;
+            height: 0;
+        }
+
+        .scroll-parallax-spacer-bottom {
+            width: 100%;
+            height: 10vh;
+        }
+
+        .scroll-parallax-anim {
+            position: relative;
+            width: 100%;
+        }
+
+        .scroll-parallax-sticky {
+            position: sticky;
+            top: 0;
+            z-index: 1;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .scroll-parallax-viewport {
+            flex: 1 0 0;
+            width: 100%;
+            height: 1px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .scroll-parallax-scene {
+            transform-style: preserve-3d;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: min-content;
+            height: min-content;
+            will-change: transform;
+        }
+
+        .parallax-arm {
+            transform-style: preserve-3d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 865px;
+            height: 151px;
+            position: relative;
+        }
+
+        .parallax-card-container {
+            position: absolute;
+            z-index: 1;
+            width: 320px;
+            height: 215px;
+            top: calc(50% - 107.5px);
+            left: calc(0% - 160px);
+        }
+
+        .parallax-card {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .parallax-card-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 215px;
+            z-index: 1;
+            overflow: hidden;
+            filter: brightness(0.6);
+        }
+
+        .parallax-card-bg img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: inherit;
+        }
+
+        .parallax-card-text {
+            position: relative;
+            z-index: 2;
+            user-select: none;
+        }
+
+        .parallax-card-text img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .scroll-parallax-trigger {
+            width: 100%;
+            height: 2000px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        @media (max-width: 1024px) {
+            .parallax-arm {
+                width: 550px;
+                height: 110px;
+            }
+
+            .parallax-card-container {
+                width: 260px;
+                height: 175px;
+                top: calc(50% - 87.5px);
+                left: calc(0% - 130px);
+            }
+
+            .parallax-card-bg {
+                height: 175px;
+            }
+        }
+
+        /* iPad Mini specific: bigger cards to fill the screen */
+        @media (min-width: 768px) and (max-width: 799px) {
+            .scroll-parallax-viewport {
+                transform: scale(1) !important;
+            }
+
+            .parallax-arm {
+                width: 480px !important;
+                height: 150px !important;
+            }
+
+            .parallax-card-container {
+                width: 220px !important;
+                height: 148px !important;
+                top: calc(50% - 74px) !important;
+                left: calc(0% - 110px) !important;
+            }
+
+            .parallax-card-bg {
+                height: 148px !important;
+            }
+
+            .parallax-card-text {
+                transform: scale(0.78) !important;
+            }
+
+            .hero-description-block {
+                margin-top: 40px !important;
+            }
+        }
+
+        /* iPad Air specific: prevent card overlap */
+        @media (min-width: 800px) and (max-width: 999px) {
+            .parallax-arm {
+                width: 470px;
+                height: 160px;
+            }
+
+            .parallax-card-container {
+                width: 210px;
+                height: 135px;
+                top: calc(50% - 67.5px);
+                left: calc(0% - 105px);
+            }
+
+            .parallax-card-bg {
+                height: 135px;
+            }
+
+            .parallax-card-text {
+                transform: scale(0.75);
+            }
+        }
+
+        /* iPad Pro specific: cards fully visible, no cropping */
+        @media (min-width: 1000px) and (max-width: 1024px) {
+            .parallax-arm {
+                width: 520px;
+                height: 145px;
+            }
+
+            .parallax-card-container {
+                width: 230px;
+                height: 155px;
+                top: calc(50% - 77.5px);
+                left: calc(0% - 115px);
+            }
+
+            .parallax-card-bg {
+                height: 155px;
+            }
+
+            .parallax-card-text {
+                transform: scale(0.8);
+            }
+        }
+
+        .gradual-blur {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 7rem;
+            pointer-events: none;
+            z-index: 1100;
+            isolation: isolate;
+        }
+
+        .gradual-blur-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .gradual-blur-inner>div {
+            position: absolute;
+            inset: 0;
+        }
+
+        /* Div 1: i=1, bezier(1/7)=0.0554, blur=0.173rem */
+        .gradual-blur-inner>div:nth-child(1) {
+            -webkit-mask-image: linear-gradient(to top, transparent 0%, black 14.3%, black 28.6%, transparent 42.9%);
+            mask-image: linear-gradient(to top, transparent 0%, black 14.3%, black 28.6%, transparent 42.9%);
+            -webkit-backdrop-filter: blur(0.173rem);
+            backdrop-filter: blur(0.173rem);
+        }
+
+        /* Div 2: i=2, bezier(2/7)=0.1983, blur=0.298rem */
+        .gradual-blur-inner>div:nth-child(2) {
+            -webkit-mask-image: linear-gradient(to top, transparent 14.3%, black 28.6%, black 42.9%, transparent 57.1%);
+            mask-image: linear-gradient(to top, transparent 14.3%, black 28.6%, black 42.9%, transparent 57.1%);
+            -webkit-backdrop-filter: blur(0.298rem);
+            backdrop-filter: blur(0.298rem);
+        }
+
+        /* Div 3: i=3, bezier(3/7)=0.3936, blur=0.469rem */
+        .gradual-blur-inner>div:nth-child(3) {
+            -webkit-mask-image: linear-gradient(to top, transparent 28.6%, black 42.9%, black 57.1%, transparent 71.4%);
+            mask-image: linear-gradient(to top, transparent 28.6%, black 42.9%, black 57.1%, transparent 71.4%);
+            -webkit-backdrop-filter: blur(0.469rem);
+            backdrop-filter: blur(0.469rem);
+        }
+
+        /* Div 4: i=4, bezier(4/7)=0.6064, blur=0.656rem */
+        .gradual-blur-inner>div:nth-child(4) {
+            -webkit-mask-image: linear-gradient(to top, transparent 42.9%, black 57.1%, black 71.4%, transparent 85.7%);
+            mask-image: linear-gradient(to top, transparent 42.9%, black 57.1%, black 71.4%, transparent 85.7%);
+            -webkit-backdrop-filter: blur(0.656rem);
+            backdrop-filter: blur(0.656rem);
+        }
+
+        /* Div 5: i=5, bezier(5/7)=0.8018, blur=0.827rem */
+        .gradual-blur-inner>div:nth-child(5) {
+            -webkit-mask-image: linear-gradient(to top, transparent 57.1%, black 71.4%, black 85.7%, transparent 100%);
+            mask-image: linear-gradient(to top, transparent 57.1%, black 71.4%, black 85.7%, transparent 100%);
+            -webkit-backdrop-filter: blur(0.827rem);
+            backdrop-filter: blur(0.827rem);
+        }
+
+        /* Div 6: i=6, bezier(6/7)=0.9446, blur=0.952rem */
+        .gradual-blur-inner>div:nth-child(6) {
+            -webkit-mask-image: linear-gradient(to top, transparent 71.4%, black 85.7%, black 100%);
+            mask-image: linear-gradient(to top, transparent 71.4%, black 85.7%, black 100%);
+            -webkit-backdrop-filter: blur(0.952rem);
+            backdrop-filter: blur(0.952rem);
+        }
+
+        /* Div 7: i=7, bezier(7/7)=1.0, blur=1.000rem */
+        .gradual-blur-inner>div:nth-child(7) {
+            -webkit-mask-image: linear-gradient(to top, transparent 85.7%, black 100%);
+            mask-image: linear-gradient(to top, transparent 85.7%, black 100%);
+            -webkit-backdrop-filter: blur(1.000rem);
+            backdrop-filter: blur(1.000rem);
+        }
+
+        @supports not (backdrop-filter: blur(1px)) {
+            .gradual-blur-inner>div {
+                background: rgba(5, 5, 5, 0.3);
+                opacity: 0.5;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-content {
+                padding: 40px 24px;
+                padding-top: 7rem;
+            }
+
+            .nav {
+                margin-bottom: 80px;
+            }
+
+            .nav-links {
+                gap: 24px;
+            }
+
+
+        }
+
+        /* ===== TESTIMONIALS PARALLAX ===== */
+        .testimonials-parallax {
+            position: relative;
+            width: 100%;
+            max-width: 1480px;
+            margin: 0 auto;
+            background: #000000;
+            overflow: visible;
+            padding-top: 180px;
+        }
+
+        .tp-container {
+            position: relative;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        /* Sticky heading layer */
+        .tp-sticky {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .tp-sticky-inner {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            pointer-events: auto;
+        }
+
+        .tp-heading {
+            font-family: 'Inter', 'Inter Display', sans-serif;
+            font-size: 166px;
+            font-weight: 600;
+            color: #ffffff;
+            letter-spacing: -8px;
+            line-height: 168px;
+            margin: 0;
+            text-transform: none;
+            text-align: center;
+        }
+
+        .tp-cta-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 18px;
+            border: 2px solid #ffffff;
+            border-radius: 259px;
+            color: #ffffff;
+            font-family: 'Inter', 'Inter Display', sans-serif;
+            font-size: 23px;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            background: transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tp-cta-btn:hover {
+            background: #ffffff;
+            color: #000000;
+        }
+
+        /* Cards scroll layer */
+        .tp-cards-layer {
+            position: relative;
+            z-index: 2;
+            padding-top: 60vh;
+            padding-bottom: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 200px;
+        }
+
+        /* Row layouts */
+        .tp-row {
+            width: 100%;
+        }
+
+        .tp-row-pair {
+            display: flex;
+            gap: 420px;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 0 24px;
+        }
+
+        .tp-row-center {
+            display: flex;
+            justify-content: center;
+            gap: 300px;
+            padding: 0 24px;
+        }
+
+        .tp-card-offset-wrap {
+            padding-top: 140px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Card styling — exact Framer match */
+        .tp-card {
+            width: 370px;
+            flex-shrink: 0;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px 20px 24px;
+        }
+
+        .tp-card-body {
+            margin-bottom: 30px;
+        }
+
+        .tp-quote-icon {
+            width: 28px;
+            height: auto;
+            display: block;
+            margin-bottom: 16px;
+        }
+
+        .tp-quote {
+            font-family: 'Inter', 'Inter Display', sans-serif;
+            font-size: 19px;
+            font-weight: 500;
+            line-height: 25.2px;
+            color: #ffffff;
+            margin: 0;
+            letter-spacing: 0;
+            word-wrap: break-word;
+        }
+
+        .tp-card-divider {
+            width: 100%;
+            height: 1px;
+            background: rgba(187, 187, 187, 0.2);
+            margin-bottom: 20px;
+        }
+
+        .tp-card-footer {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding-right: 10px;
+        }
+
+        .tp-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 5px;
+            flex-shrink: 0;
+            object-fit: cover;
+        }
+
+        .tp-user-info {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+            flex: 1;
+        }
+
+        .tp-user-name {
+            font-family: 'Poppins', 'Inter', sans-serif;
+            font-size: 18px;
+            font-weight: 500;
+            color: rgb(253, 50, 28);
+            letter-spacing: 0;
+            line-height: 20px;
+        }
+
+        .tp-user-role {
+            font-family: 'Inter', 'Inter Display', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: rgb(153, 153, 153);
+            letter-spacing: 0.1px;
+            line-height: 17px;
+        }
+
+        .tp-spacer {
+            height: 200px;
+            width: 100%;
+        }
+
+        /* Row 3 center cards slightly smaller like reference */
+        .tp-row-center .tp-card {
+            width: 350px;
+        }
+
+        /* Responsive for testimonials */
+        @media (max-width: 1200px) {
+            .tp-heading {
+                font-size: 128px;
+                letter-spacing: -6px;
+                line-height: 108px;
+            }
+
+            .tp-row-pair {
+                gap: 200px;
+            }
+
+            .tp-row-center {
+                gap: 150px;
+            }
+
+            .tp-cards-layer {
+                gap: 120px;
+            }
+        }
+
+        /* iPad Air / iPad Pro: feedback section fits within viewport */
+        @media (min-width: 768px) and (max-width: 1024px) {
+
+            /* Reduce testimonials marquee size */
+            .my-works-marquee+.testimonials-parallax,
+            .testimonials-parallax {
+                padding-top: 20px;
+            }
+
+            .marquee-item {
+                font-size: clamp(60px, 8vw, 80px) !important;
+            }
+
+            .my-works-marquee {
+                padding: 10px 0;
+            }
+
+            .tp-heading {
+                font-size: clamp(60px, 10vw, 90px);
+                letter-spacing: -3px;
+                line-height: 1.1;
+                margin-bottom: 0;
+            }
+
+            .tp-cards-layer {
+                padding-top: 15vh;
+                gap: 40px;
+            }
+
+            .tp-row-pair {
+                gap: 40px;
+            }
+
+            .tp-row-center {
+                gap: 40px;
+            }
+
+            .tp-card,
+            .tp-row-center .tp-card {
+                width: 320px;
+            }
+
+            .tp-card-offset-wrap {
+                padding-top: 30px;
+            }
+
+            /* Footer: stack columns to prevent overlap */
+            .zm-footer-main {
+                flex-direction: column !important;
+                gap: 2rem;
+            }
+
+            .zm-footer-right {
+                flex-direction: column;
+            }
+
+            .zm-footer-nav-link {
+                font-size: 2.5rem;
+                line-height: 1.2;
+                letter-spacing: -1px;
+            }
+
+            .zm-footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: center;
+                text-align: center;
+            }
+
+            .zm-footer-socials {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 12px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .testimonials-parallax {
+                padding-top: 80px;
+            }
+
+            .tp-heading {
+                font-size: 76px;
+                letter-spacing: -4px;
+                line-height: 68px;
+            }
+
+            .tp-row-pair {
+                flex-direction: column;
+                align-items: center;
+                gap: 24px;
+                padding: 0 16px;
+            }
+
+            .tp-row-center {
+                flex-direction: column;
+                align-items: center;
+                gap: 24px;
+                padding: 0 16px;
+            }
+
+            .tp-card-offset-wrap {
+                padding-top: 0;
+            }
+
+            .tp-card,
+            .tp-row-center .tp-card {
+                width: 100%;
+                max-width: 370px;
+            }
+
+            .tp-cards-layer {
+                padding-top: 50vh;
+                gap: 60px;
+            }
+
+            .tp-spacer {
+                height: 100px;
+            }
+
+            .tp-cta-btn {
+                font-size: 18px;
+                padding: 10px 16px;
+            }
+        }
+
+        /* ===== LAUNCHING SOON SECTION ===== */
+        .launching-soon {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            background: #000000;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .ls-container {
+            width: 100%;
+            max-width: 1480px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 60px;
+            gap: 40px;
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        .ls-left {
+            position: relative;
+            flex: 1;
+            min-width: 0;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 350px;
+        }
+
+        .ls-text-wrapper {
+            display: none;
+        }
+
+        .ls-title {
+            font-family: 'Inter', 'Inter Display', sans-serif;
+            font-size: clamp(80px, 11vw, 160px);
+            font-weight: 800;
+            color: #ffffff;
+            line-height: 0.9;
+            letter-spacing: -5px;
+            margin: 0;
+            text-transform: none;
+        }
+
+        .ls-video-wrapper {
+            position: relative;
+            width: clamp(450px, 55vw, 800px);
+            height: clamp(450px, 55vw, 800px);
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .ls-video-wrapper video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .ls-right {
+            flex: 0 0 560px;
+            display: flex;
+            align-items: flex-start;
+            padding-top: 40px;
+        }
+
+        .ls-description {
+            font-family: 'Telegraf', 'Inter', sans-serif;
+            font-size: 22px;
+            font-weight: 400;
+            line-height: 1.55;
+            color: #ffffff;
+            margin: 0;
+            letter-spacing: 0.01em;
+        }
+
+        @media (max-width: 1200px) {
+            .ls-container {
+                padding: 0 40px;
+            }
+
+            .ls-video-wrapper {
+                width: 300px;
+                height: 300px;
+            }
+
+            .ls-right {
+                flex: 0 0 280px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .launching-soon {
+                padding: 60px 0 80px;
+            }
+
+            .ls-container {
+                flex-direction: column;
+                padding: 0 24px;
+                gap: 40px;
+                align-items: flex-start;
+            }
+
+            .ls-left {
+                flex: none;
+                width: 100%;
+                min-height: 250px;
+                justify-content: center;
+            }
+
+            .ls-title {
+                font-size: 64px;
+                letter-spacing: -3px;
+            }
+
+            .ls-video-wrapper {
+                width: 200px;
+                height: 200px;
+            }
+
+            .ls-right {
+                flex: none;
+                width: 100%;
+                padding-top: 0;
+            }
+        }
+    </style>
+
+</head>
+
+<body id="top">
+    <!-- Custom Cursor -->
+    <div class="custom-cursor" id="customCursor">
+        <div class="cursor-dot"></div>
+        <svg class="cursor-arrow" xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24"
+            fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="butt" stroke-linejoin="miter">
+            <polyline points="7,7 17,7 17,17" />
+            <line x1="7" y1="17" x2="16" y2="8" />
+        </svg>
+    </div>
+
+    <!-- Gradual Blur Overlay -->
+    <div class="gradual-blur">
+        <div class="gradual-blur-inner">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <!-- Bottom Gradual Blur Overlay -->
+    <div class="gradual-blur gradual-blur-bottom">
+        <div class="gradual-blur-inner">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <style>
+        .gradual-blur-bottom {
+            top: auto;
+            bottom: 0;
+            transform: scaleY(-1);
+            z-index: 2;
+        }
+
+        /* Raise hero above bottom blur so description text is visible */
+        .main-content>.hero {
+            z-index: 3;
+        }
+
+        /* ===== VIEW HOVER CURSOR ===== */
+        .view-cursor {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 9998;
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 28px;
+            background-color: #ffffff;
+            border-radius: 999px;
+            mix-blend-mode: difference;
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.15);
+            transition: opacity 0.35s cubic-bezier(0.25, 1, 0.5, 1), transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+            will-change: transform, opacity;
+        }
+
+        .view-cursor.active {
+            opacity: 1;
+        }
+
+        /* Hide the default custom cursor dot on solution cards */
+        .custom-cursor.solution-hover .cursor-dot {
+            transform: scale(0) !important;
+            transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1) !important;
+        }
+
+        .custom-cursor.solution-hover .cursor-arrow {
+            opacity: 0 !important;
+            transition: opacity 0.2s ease !important;
+        }
+
+        /* Ensure no pointer/hand cursor on solution cards */
+        .solution-card,
+        .solution-card * {
+            cursor: none !important;
+        }
+
+        .view-cursor-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            color: #000000;
+            text-transform: uppercase;
+            white-space: nowrap;
+            user-select: none;
+        }
+
+
+
+        /* ===== ZAYLA MONROE-STYLE FOOTER ===== */
+        .zm-footer {
+            background: #000000;
+            padding: 80px 60px 0;
+            position: relative;
+            width: 100%;
+        }
+
+        .zm-footer-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            max-width: 1480px;
+            margin: 0 auto;
+            padding-bottom: 60px;
+        }
+
+        .zm-footer-left {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+
+        .zm-footer-profile {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .zm-footer-avatar {
+            width: 85px;
+            height: 85px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .zm-footer-profile-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .zm-footer-name {
+            font-family: 'Poppins', sans-serif;
+            font-size: 26px;
+            font-weight: 700;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 0;
+        }
+
+        .zm-footer-role {
+            font-family: 'Poppins', sans-serif;
+            font-size: 20px;
+            font-weight: 400;
+            color: #8f8f8f;
+            text-transform: uppercase;
+            line-height: 1.3;
+            letter-spacing: 0;
+        }
+
+        .zm-footer-address {
+            font-family: 'Poppins', sans-serif;
+            font-size: 22px;
+            font-weight: 400;
+            color: #ffffff;
+            line-height: 1.4;
+            text-transform: uppercase;
+        }
+
+        .zm-footer-email-btn {
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+            color: #ffffff;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0;
+            padding: 14px 24px;
+            border-radius: 6px;
+            border: none;
+            text-decoration: none;
+            cursor: pointer;
+            width: fit-content;
+            background: transparent;
+        }
+
+        .zm-footer-email-btn .zm-btn-bg {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #fd321c, #ff8a00);
+            border-radius: 6px;
+            z-index: 0;
+            transition: transform 0.8s cubic-bezier(0.625, 0.05, 0, 1);
+            will-change: transform;
+        }
+
+        .zm-footer-email-btn:hover .zm-btn-bg {
+            transform: scale(0.93);
+        }
+
+        .zm-footer-email-btn .zm-btn-text {
+            position: relative;
+            z-index: 1;
+            display: inline-flex;
+            align-items: center;
+            overflow: clip;
+            line-height: 1.2;
+            height: 1.2em;
+        }
+
+        .zm-footer-email-btn .zm-btn-char {
+            display: inline-block;
+            line-height: 1.2;
+            text-shadow: 0 1.2em currentColor;
+            transition: transform 0.8s cubic-bezier(0.625, 0.05, 0, 1);
+            will-change: transform;
+        }
+
+        .zm-footer-email-btn .zm-btn-space {
+            display: inline-block;
+            width: 0.35em;
+        }
+
+        .zm-footer-email-btn:hover .zm-btn-char {
+            transform: translateY(-1.2em);
+        }
+
+        .zm-footer-right {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .zm-footer-nav-link {
+            font-family: 'Poppins', sans-serif;
+            font-size: 64px;
+            font-weight: 700;
+            color: #ffffff;
+            text-transform: uppercase;
+            text-decoration: none;
+            line-height: 68px;
+            letter-spacing: -2.2px;
+            padding: 4px 20px;
+            border-radius: 100px;
+            transition: color 0.3s ease, background-color 0.3s ease;
+        }
+
+        .zm-footer-nav-link:hover {
+            color: #000000;
+            background-color: #ffffff;
+        }
+
+        /* Divider */
+        .zm-footer-divider {
+            width: 100%;
+            max-width: 1480px;
+            margin: 0 auto;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        /* Bottom bar */
+        .zm-footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1480px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        .zm-footer-copyright {
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 0;
+        }
+
+        .zm-footer-socials {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .glassy-social-icon {
+            position: relative;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(180deg, #000 0%, rgba(51, 51, 51, 0) 100%);
+            cursor: none;
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+            text-decoration: none;
+            overflow: hidden;
+        }
+
+        .glassy-social-icon::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            box-shadow: inset 0 4px 5px rgba(255, 255, 255, 0.12);
+            pointer-events: none;
+        }
+
+        .glassy-social-icon::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        /* Brand-colored bottom inner glow per icon */
+        .glassy-social-icon.icon-twitter::after {
+            box-shadow: inset 0 -10px 10px rgba(154, 154, 154, 0.26);
+        }
+
+        .glassy-social-icon.icon-instagram::after {
+            box-shadow: inset 0 -10px 10px rgba(193, 53, 132, 0.26);
+        }
+
+        .glassy-social-icon.icon-pinterest::after {
+            box-shadow: inset 0 -8px 10px rgba(189, 8, 28, 0.26);
+        }
+
+        .glassy-social-icon.icon-linkedin::after {
+            box-shadow: inset 0 -10px 10px rgba(29, 161, 242, 0.26);
+        }
+
+        .glassy-social-icon.icon-discord::after {
+            box-shadow: inset 0 -10px 10px rgba(88, 101, 242, 0.26);
+        }
+
+        .glassy-social-icon.icon-github::after {
+            box-shadow: inset 0 -10px 10px rgba(255, 255, 255, 0.23);
+        }
+
+        .glassy-social-icon.icon-spotify::after {
+            box-shadow: inset 0 -10px 10px rgba(30, 215, 96, 0.26);
+        }
+
+        .glassy-social-icon:hover {
+            transform: scale(1.12);
+        }
+
+        .glassy-social-icon.icon-twitter:hover {
+            box-shadow: 0 0 20px rgba(154, 154, 154, 0.3);
+        }
+
+        .glassy-social-icon.icon-instagram:hover {
+            box-shadow: 0 0 20px rgba(193, 53, 132, 0.4);
+        }
+
+        .glassy-social-icon.icon-pinterest:hover {
+            box-shadow: 0 0 20px rgba(189, 8, 28, 0.4);
+        }
+
+        .glassy-social-icon.icon-linkedin:hover {
+            box-shadow: 0 0 20px rgba(29, 161, 242, 0.4);
+        }
+
+        .glassy-social-icon.icon-discord:hover {
+            box-shadow: 0 0 20px rgba(88, 101, 242, 0.4);
+        }
+
+        .glassy-social-icon.icon-github:hover {
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+        }
+
+        .glassy-social-icon.icon-spotify:hover {
+            box-shadow: 0 0 20px rgba(30, 215, 96, 0.4);
+        }
+
+        .glassy-social-icon svg {
+            width: 28px;
+            height: 28px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Marquee banner */
+        .zm-footer-marquee {
+            background: linear-gradient(to right, #fd321b, #ff8901);
+            overflow: hidden;
+            white-space: nowrap;
+            padding: 0;
+            margin: 0;
+        }
+
+        .zm-footer-marquee-track {
+            display: inline-flex;
+            animation: zm-marquee-scroll 40s linear infinite;
+            will-change: transform;
+        }
+
+        .zm-footer-marquee-text {
+            font-family: 'Poppins', 'Inter', sans-serif;
+            font-size: clamp(120px, 18vw, 250px);
+            font-weight: 800;
+            color: #000000;
+            text-transform: uppercase;
+            letter-spacing: -10px;
+            line-height: 0.85;
+            flex-shrink: 0;
+        }
+
+        @keyframes zm-marquee-scroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .zm-footer {
+                padding: 60px 24px 0;
+            }
+
+            .zm-footer-main {
+                flex-direction: column;
+                gap: 50px;
+            }
+
+            .zm-footer-nav-link {
+                font-size: 36px;
+                letter-spacing: -1px;
+            }
+
+            .zm-footer-bottom {
+                flex-direction: column;
+                gap: 16px;
+                align-items: flex-start;
+            }
+
+            .zm-footer-marquee-text {
+                font-size: 100px;
+                letter-spacing: -5px;
+            }
+        }
+    </style>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" aria-hidden="true">
+        <div class="scroll-progress-bar" id="scrollProgressBar"></div>
+    </div>
+
+    <!-- Preloader — Modo Style -->
+    <div class="preloader" id="preloader">
+        <!-- Phase 1: Counter (hidden) -->
+        <div class="preloader-counter-screen" id="preloaderCounterScreen" style="display:none">
+            <span class="preloader-counter" id="preloaderCounter">0%</span>
+        </div>
+        <!-- Phase 2: Staggered Column Reveal -->
+        <div class="preloader-columns" id="preloaderColumns">
+            <div class="preloader-column"></div>
+            <div class="preloader-column"></div>
+            <div class="preloader-column"></div>
+            <div class="preloader-column"></div>
+            <div class="preloader-column"></div>
+            <div class="preloader-column"></div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <!-- Dropdown Menu Panel -->
+        <div class="dropdown-menu" id="dropdownMenu">
+            <div class="dropdown-menu-content">
+                <a href="#top" class="dropdown-link" data-letter-swap>HOME</a>
+                <a href="#about" class="dropdown-link" data-letter-swap>ABOUT ME</a>
+                <a href="#work" class="dropdown-link" data-letter-swap>PROJECTS</a>
+                <a href="#services" class="dropdown-link" data-letter-swap>PLAYGROUND</a>
+                <a href="#contact" class="dropdown-link" data-letter-swap>CONTACT</a>
+            </div>
+            <div class="dropdown-fade"></div>
+        </div>
+        <div class="nav-container">
+            <a href="#" class="nav-logo" data-letter-swap data-duration="0.3" data-stagger-duration="0.02">KIFYIE</a>
+            <div class="nav-center">
+                <span class="nav-line"></span>
+                <button class="nav-menu-btn" id="navMenuBtn">MENU</button>
+                <span class="nav-line"></span>
+            </div>
+            <a href="#contact" class="nav-contact" data-letter-swap>CONTACT</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+
+        <section class="hero">
+            <!-- Lumina Slider Background -->
+            <div id="lumina-hero-root" class="hero-bg hero-lumina-bg"></div>
+
+            <!-- Massive Background Text -->
+            <div class="hero-big-text">
+                <div class="hero-big-text-line">CHRIS</div>
+                <div class="hero-big-text-line">BRYAN</div>
+            </div>
+
+
+
+
+            <!-- Bottom Content: Social Proof | Card | Description -->
+            <div class="hero-bottom">
+
+
+
+
+
+
+
+                <!-- Description — Bottom Right -->
+                <div class="hero-description-block">
+                    <p><strong>With God, all things are possible.</strong> Guided by truth, driven by love — creating
+                        with purpose and passion to bring ambitious visions to life.</p>
+                </div>
+
+            </div>
+
+            <div class="hero-location" id="heroLocation"
+                style="opacity: 0; filter: blur(8px); transition: opacity 0.6s ease, filter 0.6s ease;">
+                <img class="hero-location-icon" id="heroLocationIcon" src="images/location.svg" alt="Location pin"
+                    style="opacity: 0; filter: blur(6px); transform: translateY(6px); transition: opacity 0.5s ease 0.1s, filter 0.5s ease 0.1s, transform 0.5s ease 0.1s;">
+                <span class="hero-location-text" id="heroLocationText"
+                    style="opacity: 0; filter: blur(6px); transform: translateY(6px); transition: opacity 0.5s ease 0.25s, filter 0.5s ease 0.25s, transform 0.5s ease 0.25s;"></span>
+            </div>
+
+        </section>
+
+        <!-- WHO I AM Section -->
+        <section class="who-i-am" id="about">
+            <div class="who-i-am-inner">
+                <!-- Left: Large Typography -->
+                <div class="who-left">
+                    <div class="who-big-text">
+                        <div class="who-line who-anim" data-delay="0">WHO</div>
+                        <div class="who-line who-anim" data-delay="1">AM I?</div>
+                    </div>
+                    <div class="who-portrait-wrapper who-anim" data-delay="2">
+                        <img src="/images/about/who-portrait.webp" alt="Kifyie portrait" loading="lazy" decoding="async"
+                            width="840" height="560">
+                    </div>
+                </div>
+
+                <!-- Right: Content -->
+                <div class="who-right">
+                    <div class="who-text-group">
+                        <p class="who-intro who-anim" data-delay="3">
+                            Hi! I'm a developer who believes that everyone has a story worth hearing.
+                        </p>
+                        <div class="who-details">
+                            <p class="who-detail-text who-anim" data-delay="4">
+                                With a creative approach and organic strategy, I help brands and individuals to be
+                                authentic, relevant and engaging in the digital world.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Vertical Accent & Counter -->
+                    <div class="who-divider who-anim" data-delay="5">
+                        <span class="who-divider-line"></span>
+                        <span class="who-divider-counter">(1)</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MY WORKS Marquee -->
+        <section class="my-works-marquee">
+            <div class="marquee-track">
+                <!-- Set 1 -->
+                <span class="marquee-item filled">My Works</span>
+                <span class="marquee-item outlined">My Works</span>
+                <span class="marquee-item filled">My Works</span>
+                <span class="marquee-item outlined">My Works</span>
+                <!-- Set 2 (duplicate for seamless loop) -->
+                <span class="marquee-item filled">My Works</span>
+                <span class="marquee-item outlined">My Works</span>
+                <span class="marquee-item filled">My Works</span>
+                <span class="marquee-item outlined">My Works</span>
+            </div>
+        </section>
+
+        <!-- CardStack Fan Carousel -->
+        <section class="cardstack-section" id="work">
+            <div class="cardstack-section-inner">
+                <h2 class="cardstack-section-title">Selected Works</h2>
+                <div id="cardstack-root"></div>
+                <h2 class="cardstack-section-title" style="margin-top: 4rem;">Featured Projects</h2>
+
+                <!-- Featured Project Rows -->
+                <div class="featured-projects">
+
+                    <!-- Row 1: VOXMOV — text left, image right -->
+                    <div class="fp-row">
+                        <div class="fp-info">
+                            <span class="fp-number">/ 01</span>
+                            <h3 class="fp-title">VOXMOV</h3>
+                            <p class="fp-subtitle">MOVIE STREAMING</p>
+                            <a href="https://voxmov.live/" target="_blank" rel="noopener noreferrer" class="fp-btn"
+                                aria-label="VIEW PROJECT"><span class="fp-btn-bg"></span><span class="fp-btn-text"><span
+                                        class="fp-btn-char" style="transition-delay: 0ms">V</span><span
+                                        class="fp-btn-char" style="transition-delay: 11ms">I</span><span
+                                        class="fp-btn-char" style="transition-delay: 23ms">E</span><span
+                                        class="fp-btn-char" style="transition-delay: 34ms">W</span><span
+                                        class="fp-btn-space"></span><span class="fp-btn-char"
+                                        style="transition-delay: 46ms">P</span><span class="fp-btn-char"
+                                        style="transition-delay: 57ms">R</span><span class="fp-btn-char"
+                                        style="transition-delay: 69ms">O</span><span class="fp-btn-char"
+                                        style="transition-delay: 80ms">J</span><span class="fp-btn-char"
+                                        style="transition-delay: 92ms">E</span><span class="fp-btn-char"
+                                        style="transition-delay: 103ms">C</span><span class="fp-btn-char"
+                                        style="transition-delay: 115ms">T</span></span></a>
+                        </div>
+                        <a href="https://voxmov.live/" target="_blank" rel="noopener noreferrer" class="fp-image-link">
+                            <div class="fp-image">
+                                <img src="/images/works/2.png?v=2" alt="Voxmov" draggable="false" />
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Row 2: VOXANI — image left, text right -->
+                    <div class="fp-row fp-row-reverse">
+                        <a href="https://voxani.live/" target="_blank" rel="noopener noreferrer" class="fp-image-link">
+                            <div class="fp-image">
+                                <img src="/images/works/3.png?v=2" alt="Voxani" draggable="false" />
+                            </div>
+                        </a>
+                        <div class="fp-info fp-info-right">
+                            <span class="fp-number">/ 02</span>
+                            <h3 class="fp-title">VOXANI</h3>
+                            <p class="fp-subtitle">ANIME STREAMING</p>
+                            <a href="https://voxani.live/" target="_blank" rel="noopener noreferrer" class="fp-btn"
+                                aria-label="VIEW PROJECT"><span class="fp-btn-bg"></span><span class="fp-btn-text"><span
+                                        class="fp-btn-char" style="transition-delay: 0ms">V</span><span
+                                        class="fp-btn-char" style="transition-delay: 11ms">I</span><span
+                                        class="fp-btn-char" style="transition-delay: 23ms">E</span><span
+                                        class="fp-btn-char" style="transition-delay: 34ms">W</span><span
+                                        class="fp-btn-space"></span><span class="fp-btn-char"
+                                        style="transition-delay: 46ms">P</span><span class="fp-btn-char"
+                                        style="transition-delay: 57ms">R</span><span class="fp-btn-char"
+                                        style="transition-delay: 69ms">O</span><span class="fp-btn-char"
+                                        style="transition-delay: 80ms">J</span><span class="fp-btn-char"
+                                        style="transition-delay: 92ms">E</span><span class="fp-btn-char"
+                                        style="transition-delay: 103ms">C</span><span class="fp-btn-char"
+                                        style="transition-delay: 115ms">T</span></span></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- TECHNOLOGIES Marquee -->
+        <section class="my-works-marquee" style="margin-top: 6rem;">
+            <div class="marquee-track">
+                <!-- Set 1 -->
+                <span class="marquee-item filled">TECHNOLOGIES</span>
+                <span class="marquee-item outlined">TECHNOLOGIES</span>
+                <span class="marquee-item filled">TECHNOLOGIES</span>
+                <span class="marquee-item outlined">TECHNOLOGIES</span>
+                <!-- Set 2 (duplicate for seamless loop) -->
+                <span class="marquee-item filled">TECHNOLOGIES</span>
+                <span class="marquee-item outlined">TECHNOLOGIES</span>
+                <span class="marquee-item filled">TECHNOLOGIES</span>
+                <span class="marquee-item outlined">TECHNOLOGIES</span>
+            </div>
+        </section>
+
+        <!-- 3D Spiral Scroll Animation -->
+        <section class="scroll-parallax" id="scroll-parallax">
+            <div class="scroll-parallax-spacer-top"></div>
+            <div class="scroll-parallax-anim">
+                <div class="scroll-parallax-sticky">
+                    <div class="scroll-parallax-viewport">
+                        <div class="scroll-parallax-scene" id="parallaxScene">
+                            <!-- Arm 1 (0deg) -->
+                            <div class="parallax-arm">
+                                <div class="parallax-card-container" style="transform: rotateY(-90deg)">
+                                    <div class="parallax-card">
+                                        <div class="parallax-card-bg">
+                                            <img src="https://framerusercontent.com/images/QzYm0HCWbZxYCvCfkgtNN3YQrfE.png"
+                                                alt="">
+                                        </div>
+                                        <div class="parallax-card-text" style="width:264px;height:67px">
+                                            <img src="https://framerusercontent.com/images/GaBLpDOdKWp7pRSSVrgOjQFc.png"
+                                                alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Arm 2 (45deg) -->
+                            <div class="parallax-arm" style="transform: rotateY(45deg)">
+                                <div class="parallax-card-container" style="transform: rotateY(-90deg)">
+                                    <div class="parallax-card">
+                                        <div class="parallax-card-bg">
+                                            <img src="https://framerusercontent.com/images/O8YnF5YWZ6u0y608BI0m7wSgvw.png"
+                                                alt="">
+                                        </div>
+                                        <div class="parallax-card-text" style="width:220px;height:59px">
+                                            <img src="https://framerusercontent.com/images/nTM0OJEDiJG1kMAkeNzycfXEQHo.png"
+                                                alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Arm 3 (90deg) -->
+                            <div class="parallax-arm" style="transform: rotateY(90deg)">
+                                <div class="parallax-card-container" style="transform: rotateY(-90deg)">
+                                    <div class="parallax-card">
+                                        <div class="parallax-card-bg">
+                                            <img src="https://framerusercontent.com/images/lH171Y82Y6feL6CcZtIegx1eOI.png"
+                                                alt="">
+                                        </div>
+                                        <div class="parallax-card-text" style="width:220px;height:59px">
+                                            <img src="https://framerusercontent.com/images/ryjOZEaVdqvks2lqRfrAbV8bE.png"
+                                                alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Arm 4 (135deg) -->
+                            <div class="parallax-arm" style="transform: rotateY(135deg)">
+                                <div class="parallax-card-container" style="transform: rotateY(-90deg)">
+                                    <div class="parallax-card">
+                                        <div class="parallax-card-bg">
+                                            <img src="https://framerusercontent.com/images/9obBSLHobIi0xWDNff5qDtF23rI.png"
+                                                alt="">
+                                        </div>
+                                        <div class="parallax-card-text" style="width:263px;height:73px">
+                                            <img src="https://framerusercontent.com/images/MT7eGZ0larkMXFCvFtOieJQ8.png"
+                                                alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Arm 5 (180deg) -->
+                            <div class="parallax-arm" style="transform: rotateY(180deg)">
+                                <div class="parallax-card-container" style="transform: rotateY(-90deg)">
+                                    <div class="parallax-card">
+                                        <div class="parallax-card-bg">
+                                            <img src="https://framerusercontent.com/images/O7U7OySOWqrglSr8JkWVviMbuE.png"
+                                                alt="">
+                                        </div>
+                                        <div class="parallax-card-text" style="width:263px;height:73px">
+                                            <img src="https://framerusercontent.com/images/yCPXxHTeeNGlgCKregzlEWY1MOE.png"
+                                                alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="scroll-parallax-trigger" id="parallaxTrigger"></div>
+            </div>
+            <div class="scroll-parallax-spacer-bottom"></div>
+        </section>
+
+        <!-- SOLUTIONS I PROVIDE Marquee -->
+        <section class="my-works-marquee" id="services" style="margin-top: 16rem;">
+            <div class="marquee-track" style="animation-direction: reverse;">
+                <!-- Set 1 -->
+                <span class="marquee-item filled">SOLUTIONS I PROVIDE</span>
+                <span class="marquee-item outlined">SOLUTIONS I PROVIDE</span>
+                <span class="marquee-item filled">SOLUTIONS I PROVIDE</span>
+                <span class="marquee-item outlined">SOLUTIONS I PROVIDE</span>
+                <!-- Set 2 (duplicate for seamless loop) -->
+                <span class="marquee-item filled">SOLUTIONS I PROVIDE</span>
+                <span class="marquee-item outlined">SOLUTIONS I PROVIDE</span>
+                <span class="marquee-item filled">SOLUTIONS I PROVIDE</span>
+                <span class="marquee-item outlined">SOLUTIONS I PROVIDE</span>
+            </div>
+        </section>
+
+
+
+        <!-- Solutions Cards -->
+        <section class="solutions-section">
+            <div class="solutions-grid">
+
+                <!-- Card 01: Cinematography -->
+                <div class="solution-card">
+                    <div class="solution-card-bg">
+                        <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=600&q=80"
+                            alt="Cinematography" loading="lazy">
+                    </div>
+                    <div class="solution-card-content">
+                        <h3 class="solution-card-title">Cinematography</h3>
+                        <ul class="solution-card-list">
+                            <li>Cinematic Color Grading</li>
+                            <li>Studio Level Quality</li>
+                            <li>Visual Enhancements</li>
+                            <li>Editing</li>
+                        </ul>
+                    </div>
+                    <div class="solution-card-number">01</div>
+                </div>
+
+                <!-- Card 02: Photography -->
+                <div class="solution-card">
+                    <div class="solution-card-bg">
+                        <img src="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=600&q=80"
+                            alt="Photography" loading="lazy">
+                    </div>
+                    <div class="solution-card-content">
+                        <h3 class="solution-card-title">Photography</h3>
+                        <ul class="solution-card-list">
+                            <li>Studio Color Grading</li>
+                            <li>Cinematics</li>
+                            <li>Repairs</li>
+                            <li>Enhancements</li>
+                        </ul>
+                    </div>
+                    <div class="solution-card-number">02</div>
+                </div>
+
+                <!-- Card 03: Graphic Design -->
+                <div class="solution-card">
+                    <div class="solution-card-bg">
+                        <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?w=600&q=80"
+                            alt="Graphic Design" loading="lazy">
+                    </div>
+                    <div class="solution-card-content">
+                        <h3 class="solution-card-title">Graphic Design</h3>
+                        <ul class="solution-card-list">
+                            <li>Logo Design</li>
+                            <li>All Types of Graphics</li>
+                            <li>Event Posters</li>
+                            <li>Attractive Design</li>
+                            <li>Company Designs</li>
+                        </ul>
+                    </div>
+                    <div class="solution-card-number">03</div>
+                </div>
+
+                <!-- Card 04: Developer -->
+                <div class="solution-card">
+                    <div class="solution-card-bg">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&q=80" alt="Developer"
+                            loading="lazy">
+                    </div>
+                    <div class="solution-card-content">
+                        <h3 class="solution-card-title">Developer</h3>
+                        <ul class="solution-card-list">
+                            <li>Portfolios</li>
+                            <li>Database Management</li>
+                            <li>API Handling</li>
+                            <li>Frontend</li>
+                            <li>UI/UX</li>
+                            <li>Backend</li>
+                        </ul>
+                    </div>
+                    <div class="solution-card-number">04</div>
+                </div>
+
+                <!-- Card 05: Optimization -->
+                <div class="solution-card">
+                    <div class="solution-card-bg">
+                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80"
+                            alt="Optimization" loading="lazy">
+                    </div>
+                    <div class="solution-card-content">
+                        <h3 class="solution-card-title">Optimization</h3>
+                        <ul class="solution-card-list">
+                            <li>PC Overclocking</li>
+                            <li>Optimizations</li>
+                            <li>Performance Boost</li>
+                        </ul>
+                    </div>
+                    <div class="solution-card-number">05</div>
+                </div>
+
+                <!-- Card 06: Color Grading -->
+                <div class="solution-card">
+                    <div class="solution-card-bg">
+                        <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=600&q=80"
+                            alt="Color Grading" loading="lazy">
+                    </div>
+                    <div class="solution-card-content">
+                        <h3 class="solution-card-title">Color Grading</h3>
+                        <ul class="solution-card-list">
+                            <li>Professional Color Grading</li>
+                            <li>All Types of Styles</li>
+                            <li>Masked Color Grading</li>
+                            <li>Cinematic Color Grading</li>
+                        </ul>
+                    </div>
+                    <div class="solution-card-number">06</div>
+                </div>
+
+                <!-- Card 07: Debugging -->
+                <div class="solution-card">
+                    <div class="solution-card-bg">
+                        <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&q=80"
+                            alt="Debugging" loading="lazy">
+                    </div>
+                    <div class="solution-card-content">
+                        <h3 class="solution-card-title">Debugging</h3>
+                        <ul class="solution-card-list">
+                            <li>Debugging Broken Systems</li>
+                            <li>Fixing Critical Errors</li>
+                        </ul>
+                    </div>
+                    <div class="solution-card-number">07</div>
+                </div>
+
+                <!-- Card 08: Diagnostics -->
+                <div class="solution-card">
+                    <div class="solution-card-bg">
+                        <img src="https://images.unsplash.com/photo-1597852074816-d933c7d2b988?w=600&q=80"
+                            alt="Diagnostics" loading="lazy">
+                    </div>
+                    <div class="solution-card-content">
+                        <h3 class="solution-card-title">Diagnostics</h3>
+                        <ul class="solution-card-list">
+                            <li>Diagnosing PC / Wi-Fi / Performance Issues</li>
+                            <li>Hardware Knowledge</li>
+                            <li>Reading Raw Logs</li>
+                            <li>Breaking Problems Into Steps</li>
+                        </ul>
+                    </div>
+                    <div class="solution-card-number">08</div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS Marquee -->
+        <section class="my-works-marquee">
+            <div class="marquee-track">
+                <!-- Set 1 -->
+                <span class="marquee-item filled">TESTIMONIALS</span>
+                <span class="marquee-item outlined">TESTIMONIALS</span>
+                <span class="marquee-item filled">TESTIMONIALS</span>
+                <span class="marquee-item outlined">TESTIMONIALS</span>
+                <!-- Set 2 (duplicate for seamless loop) -->
+                <span class="marquee-item filled">TESTIMONIALS</span>
+                <span class="marquee-item outlined">TESTIMONIALS</span>
+                <span class="marquee-item filled">TESTIMONIALS</span>
+                <span class="marquee-item outlined">TESTIMONIALS</span>
+            </div>
+        </section>
+
+        <!-- ===== TESTIMONIALS PARALLAX SECTION ===== -->
+        <section class="testimonials-parallax">
+            <div class="tp-container">
+                <!-- Sticky heading layer -->
+                <div class="tp-sticky">
+                    <div class="tp-sticky-inner">
+                        <h2 class="tp-heading">Feedbacks©</h2>
+                    </div>
+                </div>
+
+                <!-- Cards scroll layer -->
+                <div class="tp-cards-layer">
+                    <!-- Row 1: EpicVoxel + Pranzal -->
+                    <div class="tp-row tp-row-pair">
+                        <div class="tp-card">
+                            <div class="tp-card-body">
+                                <img class="tp-quote-icon" src="images/icons/quote-icon.svg" alt="" loading="lazy"
+                                    decoding="async">
+                                <p class="tp-quote">"Honestly, VoxAni.live and VoxMov.live are built differently. It was
+                                    sick building this portfolio because the projects are actually quality - no clutter,
+                                    just good content. If you haven't checked them out yet, you're sleeping on it."</p>
+                            </div>
+                            <div class="tp-card-divider"></div>
+                            <div class="tp-card-footer">
+                                <img class="tp-avatar" src="images/profiles/EpicVoxel.png" alt="EpicVoxel"
+                                    loading="lazy" decoding="async" width="48" height="48">
+                                <div class="tp-user-info">
+                                    <span class="tp-user-name">EpicVoxel</span>
+                                    <span class="tp-user-role">Voxura Team</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tp-card-offset-wrap">
+                            <div class="tp-card">
+                                <div class="tp-card-body">
+                                    <img class="tp-quote-icon" src="images/icons/quote-icon.svg" alt="" loading="lazy"
+                                        decoding="async">
+                                    <p class="tp-quote">"Tried Voxmov for the first time, and it was AMAZING. Like
+                                        actually, I was able to watch my favorite shows after my subscription was ended.
+                                        Thanks to the Voxura team for making a website like this without any popups or
+                                        ads."</p>
+                                </div>
+                                <div class="tp-card-divider"></div>
+                                <div class="tp-card-footer">
+                                    <img class="tp-avatar" src="images/profiles/Pranzal.png" alt="Pranzal"
+                                        loading="lazy" decoding="async" width="48" height="48">
+                                    <div class="tp-user-info">
+                                        <span class="tp-user-name">Pranzal</span>
+                                        <span class="tp-user-role">Voxura Elite</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Row 2: Paalak (center) -->
+                    <div class="tp-row tp-row-center">
+                        <div class="tp-card">
+                            <div class="tp-card-body">
+                                <img class="tp-quote-icon" src="images/icons/quote-icon.svg" alt="" loading="lazy"
+                                    decoding="async">
+                                <p class="tp-quote">"Chris is actually a very nice human being, and he really helped me
+                                    a lot of times... His problem-solving skills are fabulous, and his website, OMG, at
+                                    this age, he really made such an attractive website... Overall, Chris is a
+                                    multi-talented person and very nice human being; with consistent efforts he can
+                                    achieve even more."</p>
+                            </div>
+                            <div class="tp-card-divider"></div>
+                            <div class="tp-card-footer">
+                                <img class="tp-avatar" src="images/profiles/Paalak.png" alt="Paalak" loading="lazy"
+                                    decoding="async" width="48" height="48">
+                                <div class="tp-user-info">
+                                    <span class="tp-user-name">Paalak</span>
+                                    <span class="tp-user-role">Friend & Supporter</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Row 3: Hitesh + Oxy -->
+                    <div class="tp-row tp-row-pair">
+                        <div class="tp-card-offset-wrap">
+                            <div class="tp-card">
+                                <div class="tp-card-body">
+                                    <img class="tp-quote-icon" src="images/icons/quote-icon.svg" alt="" loading="lazy"
+                                        decoding="async">
+                                    <p class="tp-quote">"VoxMov is a well-organized movie website with a smooth user
+                                        experience, and VoxAni is an excellent platform for anime lovers. You were
+                                        always helpful, responsive, and clear in explaining things. As a person, you're
+                                        hardworking, creative, and very dedicated to what you build. You pay attention
+                                        to details and genuinely care about improving user experience."</p>
+                                </div>
+                                <div class="tp-card-divider"></div>
+                                <div class="tp-card-footer">
+                                    <img class="tp-avatar" src="images/profiles/Hitesh.png" alt="Hitesh" loading="lazy"
+                                        decoding="async" width="48" height="48">
+                                    <div class="tp-user-info">
+                                        <span class="tp-user-name">Hitesh</span>
+                                        <span class="tp-user-role">VoxMov & VoxAni User</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tp-card">
+                            <div class="tp-card-body">
+                                <img class="tp-quote-icon" src="images/icons/quote-icon.svg" alt="" loading="lazy"
+                                    decoding="async">
+                                <p class="tp-quote">"You are a great friend and a good developer. YOU'RE one of the best
+                                    people in Voxura and you're the most sweet and humble guy."</p>
+                            </div>
+                            <div class="tp-card-divider"></div>
+                            <div class="tp-card-footer">
+                                <img class="tp-avatar" src="images/profiles/Oxy.png" alt="Oxy" loading="lazy"
+                                    decoding="async" width="48" height="48">
+                                <div class="tp-user-info">
+                                    <span class="tp-user-name">Oxy</span>
+                                    <span class="tp-user-role">Voxura Member</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Row 4: Ayan (center) -->
+                    <div class="tp-row tp-row-center">
+                        <div class="tp-card">
+                            <div class="tp-card-body">
+                                <img class="tp-quote-icon" src="images/icons/quote-icon.svg" alt="" loading="lazy"
+                                    decoding="async">
+                                <p class="tp-quote">"You are a really good person, always there whenever I need you, and
+                                    you make great stuff like the two websites you made, VoxMov and VoxAni. I use VoxMov
+                                    regularly, and it's great and you do listen and work on the bugs and issues."</p>
+                            </div>
+                            <div class="tp-card-divider"></div>
+                            <div class="tp-card-footer">
+                                <img class="tp-avatar" src="images/profiles/Ayan.png" alt="Ayan" loading="lazy"
+                                    decoding="async" width="48" height="48">
+                                <div class="tp-user-info">
+                                    <span class="tp-user-name">Ayan</span>
+                                    <span class="tp-user-role">Friend & Supporter</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Row 5: Kush + Nich -->
+                    <div class="tp-row tp-row-pair">
+                        <div class="tp-card">
+                            <div class="tp-card-body">
+                                <img class="tp-quote-icon" src="images/icons/quote-icon.svg" alt="" loading="lazy"
+                                    decoding="async">
+                                <p class="tp-quote">"Voxanime is the best alternative with zero lag as well as a good
+                                    UI. It works on both Mac and Windows in amazing 1080p quality. The creator, Kifyie,
+                                    is an amazing website developer. He pushes out updates when new features or episodes
+                                    come out. He was also very helpful — I forgot my password, and he helped me recover
+                                    it. The owner is very well engaged with his community. I love how Kifyie is friendly
+                                    and overall amazing at customer service."</p>
+                            </div>
+                            <div class="tp-card-divider"></div>
+                            <div class="tp-card-footer">
+                                <img class="tp-avatar" src="images/profiles/Kush.png" alt="Kush" loading="lazy"
+                                    decoding="async" width="48" height="48">
+                                <div class="tp-user-info">
+                                    <span class="tp-user-name">Kush</span>
+                                    <span class="tp-user-role">Voxura Elite</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tp-card-offset-wrap">
+                            <div class="tp-card">
+                                <div class="tp-card-body">
+                                    <img class="tp-quote-icon" src="images/icons/quote-icon.svg" alt="" loading="lazy"
+                                        decoding="async">
+                                    <p class="tp-quote">"He's a really nice person with a good understanding of human
+                                        connections and coding. He's good at networking and helping others. He has a
+                                        trait of leaving an impact on people he meets. Voxani has no ads, and I can
+                                        watch every anime there. The interface is really professional. Voxmov's
+                                        interface is really good too, and I can watch all the movies there with no ads."
+                                    </p>
+                                </div>
+                                <div class="tp-card-divider"></div>
+                                <div class="tp-card-footer">
+                                    <img class="tp-avatar" src="images/profiles/Nich.png" alt="Nich" loading="lazy"
+                                        decoding="async" width="48" height="48">
+                                    <div class="tp-user-info">
+                                        <span class="tp-user-name">Nich</span>
+                                        <span class="tp-user-role">VoxAni & VoxMov User</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Row 6: Fireblight + Sid -->
+                    <div class="tp-row tp-row-pair">
+                        <div class="tp-card-offset-wrap">
+                            <div class="tp-card">
+                                <div class="tp-card-body">
+                                    <img class="tp-quote-icon" src="images/icons/quote-icon.svg" alt="" loading="lazy"
+                                        decoding="async">
+                                    <p class="tp-quote">"Voxani is one of the greatest websites I've ever been on. The
+                                        fact I could watch any anime for free was just insane. When I first heard about
+                                        this website, I was expecting to pay money, but realizing it was all free, I can
+                                        finally watch all the anime I could think of. Thank you so much for creating
+                                        this website. I hope the development of the work you put in gets better."</p>
+                                </div>
+                                <div class="tp-card-divider"></div>
+                                <div class="tp-card-footer">
+                                    <img class="tp-avatar" src="images/profiles/FireBlight.png" alt="Fireblight"
+                                        loading="lazy" decoding="async" width="48" height="48">
+                                    <div class="tp-user-info">
+                                        <span class="tp-user-name">Fireblight</span>
+                                        <span class="tp-user-role">VoxAni User</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tp-card">
+                            <div class="tp-card-body">
+                                <img class="tp-quote-icon" src="images/icons/quote-icon.svg" alt="" loading="lazy"
+                                    decoding="async">
+                                <p class="tp-quote">"Well Chris is a very multi talented and mature guy compared to
+                                    people of his age, he is very much active in the IT field and tech field and keeping
+                                    him self updated by which he stands out a lot from other and also know how to use
+                                    modern resources to build things and solve many big problems. In the creation of
+                                    voxani and voxmov me and other team members were facing many challenges in front end
+                                    which Chris took upon himself and gave tremendous results in a short time. All over
+                                    his a type of a guy u can depend on and also a guy who has a talent to out run many
+                                    people in the race of growth"</p>
+                            </div>
+                            <div class="tp-card-divider"></div>
+                            <div class="tp-card-footer">
+                                <img class="tp-avatar" src="images/profiles/Batzy.png" alt="Batzy" loading="lazy"
+                                    decoding="async" width="48" height="48">
+                                <div class="tp-user-info">
+                                    <span class="tp-user-name">Batzy</span>
+                                    <span class="tp-user-role">Voxura Team</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Row 7: Sid -->
+                    <div class="tp-row" style="display: flex; justify-content: center;">
+                        <div class="tp-card">
+                            <div class="tp-card-body">
+                                <img class="tp-quote-icon" src="images/icons/quote-icon.svg" alt="" loading="lazy"
+                                    decoding="async">
+                                <p class="tp-quote">"You are a great friend always chill unlike cherry getting ragebait
+                                    everytime. About voxanime- it's really a good website but still doesn't support tv
+                                    cast. About the quality it's fine. You should try adding comment section to make it
+                                    better. About voxmov- it's a good movie websites but sometimes I face loading
+                                    errors"</p>
+                            </div>
+                            <div class="tp-card-divider"></div>
+                            <div class="tp-card-footer">
+                                <img class="tp-avatar" src="images/profiles/Sid.png" alt="Sid" loading="lazy"
+                                    decoding="async" width="48" height="48">
+                                <div class="tp-user-info">
+                                    <span class="tp-user-name">Sid</span>
+                                    <span class="tp-user-role">Voxura Team</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bottom spacer -->
+                    <div class="tp-spacer"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== LAUNCHING SOON SECTION ===== -->
+        <section class="launching-soon">
+            <div class="ls-container">
+                <div class="ls-left">
+                    <div class="ls-text-wrapper">
+                        <h2 class="ls-title">Launching<br>Soon</h2>
+                    </div>
+                    <div class="ls-video-wrapper">
+                        <video autoplay muted loop playsinline preload="none">
+                            <source src="/videos/launching-cube.webm" type="video/webm">
+                        </video>
+                    </div>
+                </div>
+                <div class="ls-right">
+                    <p class="ls-description">It's not here yet, but we'll let you in on a secret. It's coming really,
+                        really soon. So sit tight and check back soon. You just might see something that will blow your
+                        socks off!</p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ===== FOOTER (exact match to about page) ===== -->
+        <footer id="contact" class="zm-footer">
+            <div class="zm-footer-main">
+                <div class="zm-footer-left">
+                    <div class="zm-footer-profile">
+                        <img class="zm-footer-avatar" src="/images/about/who-portrait-sm.webp" alt="Chris Bryan"
+                            loading="lazy" decoding="async" width="85" height="85">
+                        <div class="zm-footer-profile-info">
+                            <span class="zm-footer-name">CHRIS BRYAN</span>
+                            <span class="zm-footer-role">Jack of all trades</span>
+                        </div>
+                    </div>
+                    <p class="zm-footer-address" style="display: flex; align-items: center; gap: 10px;"><img
+                            src="images/icons/location.svg" alt="Location" style="width: 28px; height: 28px;">Lucknow,
+                        India</p>
+                    <a href="mailto:mrzaidsaeed@gmail.com" class="zm-footer-email-btn" aria-label="EMAIL ME">
+                        <span class="zm-btn-bg"></span>
+                        <span class="zm-btn-text">
+                            <span class="zm-btn-char" style="transition-delay: 0ms">E</span>
+                            <span class="zm-btn-char" style="transition-delay: 11ms">M</span>
+                            <span class="zm-btn-char" style="transition-delay: 23ms">A</span>
+                            <span class="zm-btn-char" style="transition-delay: 34ms">I</span>
+                            <span class="zm-btn-char" style="transition-delay: 46ms">L</span>
+                            <span class="zm-btn-space"></span>
+                            <span class="zm-btn-char" style="transition-delay: 57ms">M</span>
+                            <span class="zm-btn-char" style="transition-delay: 69ms">E</span>
+                        </span>
+                    </a>
+                </div>
+                <div class="zm-footer-right">
+                    <a href="#top" class="zm-footer-nav-link">Home</a>
+                    <a href="#about" class="zm-footer-nav-link">About</a>
+                    <a href="#work" class="zm-footer-nav-link">Projects</a>
+                    <a href="#services" class="zm-footer-nav-link">Playground</a>
+                    <a href="#contact" class="zm-footer-nav-link">Contact</a>
+                </div>
+            </div>
+            <div class="zm-footer-divider"></div>
+            <div class="zm-footer-bottom">
+                <span class="zm-footer-copyright">&copy; 2025 All rights reserved</span>
+                <div class="zm-footer-socials">
+                    <!-- X/Twitter -->
+                    <a href="https://x.com/KifyieVOX" target="_blank" rel="noopener noreferrer"
+                        class="glassy-social-icon icon-twitter" aria-label="X/Twitter">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="gTwitter" x1="12" y1="0" x2="12" y2="24"
+                                    gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#fff" />
+                                    <stop offset="1" stop-color="#999" />
+                                </linearGradient>
+                            </defs>
+                            <path
+                                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                                fill="url(#gTwitter)" />
+                        </svg>
+                    </a>
+                    <!-- Instagram -->
+                    <a href="https://www.instagram.com/daquevis._/" target="_blank" rel="noopener noreferrer"
+                        class="glassy-social-icon icon-instagram" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="gInsta" x1="12" y1="0" x2="12" y2="24"
+                                    gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#535fcd" />
+                                    <stop offset=".31" stop-color="#e263" />
+                                    <stop offset=".70" stop-color="#de2d76" />
+                                    <stop offset="1" stop-color="#fed677" />
+                                </linearGradient>
+                            </defs>
+                            <path
+                                d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"
+                                fill="url(#gInsta)" />
+                        </svg>
+                    </a>
+                    <!-- Pinterest -->
+                    <a href="https://www.pinterest.com/kifyie" target="_blank" rel="noopener noreferrer"
+                        class="glassy-social-icon icon-pinterest" aria-label="Pinterest">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="gPinterest" x1="12" y1="0" x2="12" y2="24"
+                                    gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#bd081c" />
+                                    <stop offset="1" stop-color="#ffb8c0" />
+                                </linearGradient>
+                            </defs>
+                            <path
+                                d="M12 2C6.477 2 2 6.477 2 12c0 4.236 2.636 7.855 6.356 9.312-.088-.791-.167-2.005.035-2.868.181-.78 1.172-4.97 1.172-4.97s-.299-.598-.299-1.482c0-1.388.806-2.425 1.808-2.425.853 0 1.265.64 1.265 1.408 0 .858-.546 2.14-.828 3.33-.236.995.5 1.807 1.48 1.807 1.778 0 3.144-1.874 3.144-4.58 0-2.393-1.72-4.067-4.177-4.067-2.845 0-4.515 2.135-4.515 4.34 0 .859.331 1.781.745 2.282a.3.3 0 0 1 .069.288l-.278 1.133c-.044.183-.145.222-.335.134-1.249-.581-2.03-2.407-2.03-3.874 0-3.154 2.292-6.052 6.608-6.052 3.469 0 6.165 2.473 6.165 5.776 0 3.447-2.173 6.22-5.19 6.22-1.013 0-1.965-.527-2.291-1.148l-.623 2.378c-.226.869-.835 1.958-1.244 2.621.937.29 1.931.449 2.962.449 5.523 0 10-4.477 10-10S17.523 2 12 2z"
+                                fill="url(#gPinterest)" />
+                        </svg>
+                    </a>
+                    <!-- LinkedIn -->
+                    <a href="https://www.linkedin.com/in/chris-bryan-573a773ab/" target="_blank"
+                        rel="noopener noreferrer" class="glassy-social-icon icon-linkedin" aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="gLinkedin" x1="12" y1="0" x2="12" y2="24"
+                                    gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#5ba4ca" />
+                                    <stop offset="1" stop-color="#1872cb" />
+                                </linearGradient>
+                            </defs>
+                            <path
+                                d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"
+                                fill="url(#gLinkedin)" />
+                        </svg>
+                    </a>
+                    <!-- Discord -->
+                    <a href="https://discord.gg/VcjXCUn6NZ" target="_blank" rel="noopener noreferrer"
+                        class="glassy-social-icon icon-discord" aria-label="Discord">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="gDiscord" x1="12" y1="0" x2="12" y2="24"
+                                    gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#a5acfa" />
+                                    <stop offset="1" stop-color="#454dc5" />
+                                </linearGradient>
+                            </defs>
+                            <path
+                                d="M19.27 5.33C17.94 4.71 16.5 4.26 15 4a.09.09 0 0 0-.07.03c-.18.33-.39.76-.53 1.09a16.09 16.09 0 0 0-4.8 0c-.14-.34-.35-.76-.54-1.09-.01-.02-.04-.03-.07-.03-1.5.26-2.93.71-4.27 1.33-.01 0-.02.01-.03.02-2.72 4.07-3.47 8.03-3.1 11.95 0 .02.01.04.03.05 1.8 1.32 3.53 2.12 5.24 2.65.03.01.06 0 .07-.02.4-.55.76-1.13 1.07-1.74.02-.04 0-.08-.04-.09-.57-.22-1.11-.48-1.64-.78-.04-.02-.04-.08-.01-.11.11-.08.22-.17.33-.25.02-.02.05-.02.07-.01 3.44 1.57 7.15 1.57 10.55 0 .02-.01.05-.01.07.01.11.09.22.17.33.26.04.03.04.09-.01.11-.52.31-1.07.56-1.64.78-.04.01-.05.06-.04.09.32.61.68 1.19 1.07 1.74.03.01.06.02.09.01 1.72-.53 3.45-1.33 5.25-2.65.02-.01.03-.03.03-.05.44-4.53-.73-8.46-3.1-11.95-.01-.01-.02-.02-.04-.02zM8.52 14.91c-1.03 0-1.89-.95-1.89-2.12s.84-2.12 1.89-2.12c1.06 0 1.9.96 1.89 2.12 0 1.17-.84 2.12-1.89 2.12zm6.97 0c-1.03 0-1.89-.95-1.89-2.12s.84-2.12 1.89-2.12c1.06 0 1.9.96 1.89 2.12 0 1.17-.83 2.12-1.89 2.12z"
+                                fill="url(#gDiscord)" />
+                        </svg>
+                    </a>
+                    <!-- GitHub -->
+                    <a href="https://github.com/Kifyie/" target="_blank" rel="noopener noreferrer"
+                        class="glassy-social-icon icon-github" aria-label="GitHub">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="gGithub" x1="12" y1="0" x2="12" y2="24"
+                                    gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#fff" />
+                                    <stop offset="1" stop-color="#999" />
+                                </linearGradient>
+                            </defs>
+                            <path
+                                d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"
+                                fill="url(#gGithub)" />
+                        </svg>
+                    </a>
+                    <!-- Spotify -->
+                    <a href="https://open.spotify.com/artist/367O19ReEA9L91glOOZXOI?si=oU16hzwhTueCK7r2OfH6jw"
+                        target="_blank" rel="noopener noreferrer" class="glassy-social-icon icon-spotify"
+                        aria-label="Spotify">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="gSpotify" x1="12" y1="0" x2="12" y2="24"
+                                    gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#1ed760" />
+                                    <stop offset="1" stop-color="#159242" />
+                                </linearGradient>
+                            </defs>
+                            <path
+                                d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.586 14.424a.622.622 0 0 1-.857.207c-2.348-1.435-5.304-1.76-8.785-.964a.623.623 0 0 1-.277-1.215c3.809-.87 7.076-.496 9.712 1.115a.623.623 0 0 1 .207.857zm1.224-2.722a.78.78 0 0 1-1.072.257c-2.687-1.652-6.785-2.131-9.965-1.166a.78.78 0 0 1-.452-1.492c3.632-1.102 8.147-.568 11.234 1.329a.78.78 0 0 1 .255 1.072zm.105-2.835C14.692 8.95 9.375 8.775 6.297 9.71a.934.934 0 1 1-.543-1.79c3.533-1.072 9.404-.865 13.115 1.338a.934.934 0 0 1-1.054 1.61z"
+                                fill="url(#gSpotify)" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- Orange Marquee Banner (exact match to about page) -->
+    <div class="zm-footer-marquee">
+        <div class="zm-footer-marquee-track">
+            <span class="zm-footer-marquee-text">&nbsp;CHRIS BRYAN — KIFYIE —&nbsp;CHRIS BRYAN — KIFYIE —&nbsp;CHRIS
+                BRYAN — KIFYIE —&nbsp;CHRIS BRYAN — KIFYIE —&nbsp;</span><span
+                class="zm-footer-marquee-text">&nbsp;CHRIS BRYAN — KIFYIE —&nbsp;CHRIS BRYAN — KIFYIE —&nbsp;CHRIS BRYAN
+                — KIFYIE —&nbsp;CHRIS BRYAN — KIFYIE —&nbsp;</span>
+        </div>
+    </div>
+
+    <!-- Anime.js -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
+
+    <!-- Preloader Script — Modo Style -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const preloader = document.getElementById('preloader');
+            const counterScreen = document.getElementById('preloaderCounterScreen');
+            const columns = document.querySelectorAll('.preloader-column');
+            const mainContent = document.getElementById('mainContent');
+
+            // Skip counter — go straight to column reveal
+            counterScreen.style.display = 'none';
+            mainContent.classList.add('visible');
+
+            // Stagger columns sliding up (left to right)
+            anime({
+                targets: columns,
+                translateY: [0, '-100%'],
+                duration: 900,
+                easing: 'easeInOutExpo',
+                delay: anime.stagger(120),
+                complete: () => {
+                    preloader.style.display = 'none';
+                }
+            });
+        });
+    </script>
+
+    <!-- GSAP & Lenis for Smooth Scrolling -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script defer src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+
+    <!-- Smooth scroll & parallax -->
+    <script defer type="module" src="/src/js/smooth-scroll.js"></script>
+
+    <!-- Nav dropdown toggle -->
+    <script defer type="module" src="/src/js/script.js"></script>
+
+    <!-- Letter swap animation -->
+    <script defer type="module" src="/src/js/letter-swap.js"></script>
+
+    <!-- WHO I AM reveal animation -->
+    <script>
+        (function () {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+
+            document.querySelectorAll('.who-anim').forEach(el => observer.observe(el));
+
+            // Solution cards — staggered reveal
+            document.querySelectorAll('.solution-card').forEach((card, i) => {
+                card.style.transitionDelay = (i % 4) * 0.1 + 's';
+                observer.observe(card);
+            });
+        })();
+    </script>
+
+    <!-- Scroll-based Word Highlight Effect (WHO I AM section) -->
+    <script>
+        (function () {
+            // Target paragraphs to apply the effect
+            const targets = document.querySelectorAll('.who-intro, .who-detail-text');
+            if (!targets.length) return;
+
+            const allWords = [];
+
+            // Split each paragraph's text into word spans
+            targets.forEach(el => {
+                const text = el.textContent.trim();
+                const words = text.split(/\s+/);
+                el.innerHTML = '';
+                words.forEach((word, i) => {
+                    const span = document.createElement('span');
+                    span.className = 'scroll-highlight-word';
+                    span.textContent = word;
+                    el.appendChild(span);
+                    allWords.push(span);
+                    // Add space between words (except last)
+                    if (i < words.length - 1) {
+                        el.appendChild(document.createTextNode(' '));
+                    }
+                });
+            });
+
+            // The container to measure scroll progress against
+            const section = document.querySelector('.who-i-am');
+            if (!section) return;
+
+            function onScroll() {
+                const rect = section.getBoundingClientRect();
+                const vh = window.innerHeight;
+
+                // Start highlighting when section top reaches 20% of viewport (delayed)
+                // Finish when section top is well above viewport
+                const startTrigger = vh * 0.2;
+                const endTrigger = vh * -0.8;
+                const progress = (startTrigger - rect.top) / (startTrigger - endTrigger);
+                const clamped = Math.max(0, Math.min(1, progress));
+
+                // Number of words to light up
+                const litCount = Math.round(clamped * allWords.length);
+
+                allWords.forEach((span, i) => {
+                    if (i < litCount) {
+                        span.classList.add('lit');
+                    } else {
+                        span.classList.remove('lit');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', onScroll, { passive: true });
+            onScroll(); // initial check
+        })();
+    </script>
+
+    <!-- Solution Card Magnetic Image Effect -->
+    <script>
+        (function () {
+            const cards = document.querySelectorAll('.solution-card');
+            const strength = 20; // px shift for image
+            const tiltMax = 6;   // degrees tilt
+
+            cards.forEach(card => {
+                const img = card.querySelector('.solution-card-bg img');
+                if (!img) return;
+
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = (e.clientX - rect.left) / rect.width;  // 0-1
+                    const y = (e.clientY - rect.top) / rect.height;  // 0-1
+                    const moveX = (x - 0.5) * strength * 2;
+                    const moveY = (y - 0.5) * strength * 2;
+                    const tiltX = (0.5 - y) * tiltMax;
+                    const tiltY = (x - 0.5) * tiltMax;
+
+                    img.style.transform = `translate(${moveX}px, ${moveY}px) scale(1.12)`;
+                    card.style.transform = `perspective(600px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) translateY(0)`;
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    img.style.transform = 'translate(0, 0) scale(1.05)';
+                    card.style.transform = 'perspective(600px) rotateX(0deg) rotateY(0deg) translateY(0)';
+                });
+            });
+        })();
+    </script>
+
+    <!-- Custom Cursor Script -->
+    <script>
+        (function () {
+            const cursor = document.getElementById('customCursor');
+            if (!cursor) return;
+
+            let mouseX = 0, mouseY = 0;
+            let cursorX = 0, cursorY = 0;
+            const lerp = 0.08; // Smoothing factor (lower = more lag, silkier feel)
+            let isVisible = false;
+            let rafId = null;
+
+            // Interactive elements that trigger the scale-up
+            const hoverSelectors = 'a, button, .work-card, .hero-card-cta, .nav-menu-btn, .service-card, .footer-cta, .dropdown-link, [role="button"], input, textarea, select';
+
+            function animate() {
+                cursorX += (mouseX - cursorX) * lerp;
+                cursorY += (mouseY - cursorY) * lerp;
+                cursor.style.left = cursorX + 'px';
+                cursor.style.top = cursorY + 'px';
+                rafId = requestAnimationFrame(animate);
+            }
+
+            // Use left/top updated via lerp, transform just for centering
+            function startAnimation() {
+                if (!rafId) {
+                    rafId = requestAnimationFrame(animate);
+                }
+            }
+
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+
+                if (!isVisible) {
+                    isVisible = true;
+                    // Jump to position immediately on first move
+                    cursorX = mouseX;
+                    cursorY = mouseY;
+                    cursor.classList.add('visible');
+                    startAnimation();
+                }
+            });
+
+            document.addEventListener('mouseleave', () => {
+                isVisible = false;
+                cursor.classList.remove('visible');
+            });
+
+            document.addEventListener('mouseenter', () => {
+                if (!isVisible) {
+                    isVisible = true;
+                    cursor.classList.add('visible');
+                    startAnimation();
+                }
+            });
+
+            // Hover detection via event delegation
+            document.addEventListener('mouseover', (e) => {
+                if (e.target.closest('.glassy-social-icon')) return;
+                if (e.target.closest('.cs-card') || e.target.closest('.fp-image-link')) {
+                    cursor.classList.add('card-hover');
+                    cursor.classList.remove('hover');
+                } else if (e.target.closest(hoverSelectors)) {
+                    cursor.classList.add('hover');
+                }
+            });
+
+            document.addEventListener('mouseout', (e) => {
+                if (e.target.closest('.glassy-social-icon')) return;
+                if (e.target.closest('.cs-card') || e.target.closest('.fp-image-link')) {
+                    cursor.classList.remove('card-hover');
+                } else if (e.target.closest(hoverSelectors)) {
+                    cursor.classList.remove('hover');
+                }
+            });
+
+            // Start the loop
+            startAnimation();
+        })();
+    </script>
+
+    <!-- Lumina Hero Slider (Vite processes TSX directly in dev) -->
+    <script type="module" src="./src/gallery-entry.tsx"></script>
+
+    <script>
+        // Location data per slide index (order: 1, 4, 5, 2, 6, 3)
+        var slideLocations = {
+            0: { text: 'ST. JOSEPH\u2019S<br>CATHEDRAL CHURCH,<br>LUCKNOW', icon: 'images/icons/location.svg' },
+            1: { text: 'BUGATTI VEYRON', icon: 'images/icons/car.svg' },
+            2: { text: 'AGRA-LUCKNOW<br>EXPRESSWAY (NH 230)', icon: 'images/icons/location.svg' },
+            3: { text: 'ST. PETER\u2019S CHURCH,<br>AGRA', icon: 'images/icons/location.svg' },
+            4: { text: 'CHRIST CHURCH,<br>HAZRATGANJ,<br>LUCKNOW', icon: 'images/icons/location.svg' },
+            5: { text: 'LA MARTINI\u00c8RE<br>COLLEGE, LUCKNOW', icon: 'images/icons/location.svg' }
+        };
+
+        function updateLocationBadge(index) {
+            var badge = document.getElementById('heroLocation');
+            var textEl = document.getElementById('heroLocationText');
+            var iconEl = document.getElementById('heroLocationIcon');
+            var loc = slideLocations[index];
+            if (badge && textEl && iconEl) {
+                if (loc) {
+                    textEl.innerHTML = loc.text;
+                    iconEl.src = loc.icon;
+                    iconEl.style.filter = loc.icon.includes('car') ? 'blur(0px)' : 'brightness(0) invert(1) blur(0px)';
+                    badge.style.opacity = '1';
+                    badge.style.filter = 'blur(0px)';
+                    iconEl.style.opacity = '1';
+                    iconEl.style.transform = 'translateY(0)';
+                    textEl.style.opacity = '1';
+                    textEl.style.filter = 'blur(0px)';
+                    textEl.style.transform = 'translateY(0)';
+                } else {
+                    badge.style.opacity = '0';
+                    badge.style.filter = 'blur(8px)';
+                    iconEl.style.opacity = '0';
+                    iconEl.style.filter = 'blur(6px)';
+                    iconEl.style.transform = 'translateY(6px)';
+                    textEl.style.opacity = '0';
+                    textEl.style.filter = 'blur(6px)';
+                    textEl.style.transform = 'translateY(6px)';
+                }
+            }
+        }
+
+        // Listen for slide changes
+        window.addEventListener('hero-slide-change', function (e) {
+            updateLocationBadge(e.detail.index);
+        });
+
+        // Also trigger immediately for slide 0 (fixes race condition)
+        setTimeout(function () { updateLocationBadge(0); }, 500);
+    </script>
+
+
+
+    <!-- Scroll Rotating Parallax Script -->
+    <script>
+        (function () {
+            var section = document.getElementById('scroll-parallax');
+            var scene = document.getElementById('parallaxScene');
+            var trigger = document.getElementById('parallaxTrigger');
+            var stickyEl = section ? section.querySelector('.scroll-parallax-sticky') : null;
+            if (!section || !scene || !trigger || !stickyEl) return;
+
+            var isMobile = window.innerWidth <= 1024;
+
+            // Device-appropriate values
+            var PERSPECTIVE = isMobile ? 800 : 1200;
+            var INITIAL_Y = isMobile ? 60 : 160;
+            var FINAL_Y = isMobile ? -60 : -160;
+            // Arms are at 0°, 45°, 90°, 135°, 180° with -90° card offset
+            // Card 1 faces forward at cylinder rotateY(90°)
+            // Card 5 faces forward at cylinder rotateY(-90°)
+            // Small overshoot at each end so first/last card stay in view briefly
+            var INITIAL_ROTATE = 95;
+            var FINAL_ROTATE = -95;
+            var LERP_SPEED = 0.1;
+
+            var scrollProgress = 0;
+            var currentProgress = 0;
+            var rafId = null;
+            var isPinned = false;
+
+            function lerp(a, b, t) {
+                return a + (b - a) * t;
+            }
+
+            function updateScene() {
+                currentProgress = lerp(currentProgress, scrollProgress, LERP_SPEED);
+
+                var rotY = INITIAL_ROTATE + (FINAL_ROTATE - INITIAL_ROTATE) * currentProgress;
+                var transY = INITIAL_Y + (FINAL_Y - INITIAL_Y) * currentProgress;
+
+                scene.style.transform =
+                    'perspective(' + PERSPECTIVE + 'px) ' +
+                    'translateY(' + transY + 'px) ' +
+                    'rotateY(' + rotY + 'deg)';
+
+                rafId = requestAnimationFrame(updateScene);
+            }
+
+            // ===== UNIFIED JS-BASED PINNING (Lenis breaks CSS sticky) =====
+            function onScroll() {
+                var sectionRect = section.getBoundingClientRect();
+                var sectionTop = window.scrollY + sectionRect.top;
+                var scrollY = window.scrollY || window.pageYOffset;
+
+                // How far into the section we've scrolled
+                var scrolledInto = scrollY - sectionTop;
+                // Total scrollable range within the section (section height - viewport)
+                var sectionHeight = section.offsetHeight;
+                var maxScroll = sectionHeight - window.innerHeight;
+
+                if (scrolledInto >= 0 && scrolledInto <= maxScroll) {
+                    // We're inside the section — pin it
+                    if (!isPinned) {
+                        isPinned = true;
+                        stickyEl.style.position = 'fixed';
+                        stickyEl.style.top = '0';
+                        stickyEl.style.left = '0';
+                        stickyEl.style.width = '100%';
+                        stickyEl.style.zIndex = '100';
+                    }
+                    // Calculate progress (0 to 1)
+                    scrollProgress = Math.max(0, Math.min(1, scrolledInto / maxScroll));
+                } else if (scrolledInto > maxScroll) {
+                    // Past the section — unpin at bottom
+                    if (isPinned) {
+                        isPinned = false;
+                        stickyEl.style.position = 'absolute';
+                        stickyEl.style.top = maxScroll + 'px';
+                        stickyEl.style.left = '0';
+                        stickyEl.style.width = '100%';
+                    }
+                    scrollProgress = 1;
+                } else {
+                    // Before the section — unpin at top
+                    if (isPinned) {
+                        isPinned = false;
+                        stickyEl.style.position = isMobile ? 'relative' : 'sticky';
+                        stickyEl.style.top = '0';
+                    }
+                    scrollProgress = 0;
+                }
+            }
+
+            // Make the anim wrapper position: relative for absolute positioning
+            var animWrapper = section.querySelector('.scroll-parallax-anim');
+            if (animWrapper) animWrapper.style.position = 'relative';
+
+            window.addEventListener('scroll', onScroll, { passive: true });
+            onScroll();
+
+            // Start animation loop
+            rafId = requestAnimationFrame(updateScene);
+
+            // Set initial transform
+            scene.style.transform =
+                'perspective(' + PERSPECTIVE + 'px) ' +
+                'translateY(' + INITIAL_Y + 'px) ' +
+                'rotateY(' + INITIAL_ROTATE + 'deg)';
+        })();
+    </script>
+
+
+</body>
+
+</html>

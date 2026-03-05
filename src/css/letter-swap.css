@@ -1,0 +1,62 @@
+/* =====================================================
+   LETTER SWAP - Styles
+   ===================================================== */
+
+.letter-swap {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.letter-swap__container {
+    display: inline-flex;
+}
+
+.letter-swap__wrapper {
+    position: relative;
+    display: inline-flex;
+    overflow: hidden;
+}
+
+.letter-swap__primary {
+    display: inline-block;
+    position: relative;
+    will-change: transform;
+}
+
+.letter-swap__secondary {
+    position: absolute;
+    left: 0;
+    display: inline-block;
+    will-change: top;
+}
+
+/* Screen reader only */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* =====================================================
+   NAV SPECIFIC OVERRIDES
+   ===================================================== */
+
+/* Keep nav-logo on the left */
+.nav-logo.letter-swap {
+    justify-self: start;
+}
+
+/* Keep nav-contact on the right */
+.nav-contact.letter-swap {
+    justify-self: end;
+}

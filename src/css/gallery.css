@@ -1,0 +1,198 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =====================================================
+   LUMINA INTERACTIVE LIST — Custom Properties & Styles
+   ===================================================== */
+
+.slider-wrapper {
+  --font-mono: "PPSupplyMono", monospace;
+  --font-sans: "PP Neue Montreal", sans-serif;
+  --font-display: "Cormorant Garamond", serif;
+  --color-bg: #0a0a0a;
+  --color-text: #ffffff;
+  --color-text-muted: rgba(255, 255, 255, 0.7);
+  --color-text-light: rgba(255, 255, 255, 0.5);
+  --color-accent: #d4af37;
+  --font-size-mono: clamp(10px, 1.2vw, 12px);
+  --spacing-sm: 0.75rem;
+  --spacing-md: 1rem;
+}
+
+/* =====================================================
+   SLIDER WRAPPER
+   ===================================================== */
+.slider-wrapper {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--color-bg);
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.slider-wrapper.loaded {
+  opacity: 1;
+}
+
+/* =====================================================
+   WEBGL CANVAS
+   ===================================================== */
+.webgl-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* =====================================================
+   SLIDE COUNTER
+   ===================================================== */
+.slide-number,
+.slide-total {
+  position: absolute;
+  font-family: var(--font-mono), "JetBrains Mono", monospace;
+  font-size: var(--font-size-mono);
+  color: var(--color-text-light);
+  letter-spacing: 0.1em;
+  z-index: 10;
+  user-select: none;
+}
+
+.slide-number {
+  top: 2rem;
+  right: 2rem;
+}
+
+.slide-total {
+  bottom: 2rem;
+  right: 2rem;
+}
+
+/* =====================================================
+   SLIDE CONTENT (Title + Description)
+   ===================================================== */
+.slide-content {
+  position: absolute;
+  bottom: 6rem;
+  left: 3rem;
+  z-index: 10;
+  pointer-events: none;
+  max-width: 600px;
+}
+
+.slide-title {
+  font-family: var(--font-display), "Cormorant Garamond", serif;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+  margin: 0 0 0.75rem 0;
+  perspective: 600px;
+}
+
+.slide-description {
+  font-family: var(--font-sans), "Inter", sans-serif;
+  font-size: clamp(0.85rem, 1.2vw, 1rem);
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+/* =====================================================
+   SLIDES NAVIGATION
+   ===================================================== */
+.slides-navigation {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  z-index: 10;
+}
+
+.slide-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  opacity: 0.4;
+  transition: opacity 0.3s ease;
+}
+
+.slide-nav-item.active {
+  opacity: 1;
+}
+
+.slide-nav-item:hover {
+  opacity: 0.8;
+}
+
+.slide-progress-line {
+  width: 60px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 1px;
+  overflow: hidden;
+}
+
+.slide-progress-fill {
+  width: 0%;
+  height: 100%;
+  background: var(--color-accent);
+  border-radius: 1px;
+  transition: width 0.1s ease, opacity 0.3s ease;
+}
+
+.slide-nav-title {
+  font-family: var(--font-mono), "JetBrains Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-text-light);
+  white-space: nowrap;
+  user-select: none;
+}
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+@media (max-width: 768px) {
+  .slide-content {
+    bottom: 8rem;
+    left: 1.5rem;
+    right: 1.5rem;
+    max-width: none;
+  }
+
+  .slides-navigation {
+    gap: 0.75rem;
+  }
+
+  .slide-progress-line {
+    width: 36px;
+  }
+
+  .slide-nav-title {
+    display: none;
+  }
+
+  .slide-number {
+    top: 1rem;
+    right: 1rem;
+  }
+
+  .slide-total {
+    bottom: 1rem;
+    right: 1rem;
+  }
+}
