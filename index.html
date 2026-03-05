@@ -677,7 +677,7 @@
 
         @media (max-width: 768px) {
             .hero-big-text-line {
-                font-size: clamp(48px, 12vw, 140px);
+                font-size: clamp(44px, 11vw, 140px);
             }
 
             .hero-bottom {
@@ -686,6 +686,16 @@
 
             .hero-card {
                 width: 240px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-big-text-line {
+                font-size: clamp(36px, 13.5vw, 56px);
+            }
+
+            .hero-big-text {
+                padding: 0 1rem;
             }
         }
 
