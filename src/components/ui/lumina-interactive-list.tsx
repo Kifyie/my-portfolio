@@ -74,12 +74,12 @@ export function Component() {
             const TRANSITION_DURATION = () => SLIDER_CONFIG.settings.transitionDuration;
 
             const slides = [
-                { title: "Ethereal Glow", description: "A soft, radiant light that illuminates the soul.", media: "/images/hero/1.png" },
-                { title: "Golden Hour", description: "That fleeting moment when the world is dipped in gold.", media: "/images/hero/4.png" },
-                { title: "Midnight Dreams", description: "Where reality fades and imagination takes flight.", media: "/images/hero/5.png" },
-                { title: "Rose Mirage", description: "Lost in a desert of blooming dreams and endless horizons.", media: "/images/hero/2.png" },
-                { title: "Silver Light", description: "A cool, metallic shimmer reflecting the urban pulse.", media: "/images/hero/6.png" },
-                { title: "Velvet Mystique", description: "Wrapped in the deep, luxurious embrace of the night.", media: "/images/hero/3.png" }
+                { title: "Ethereal Glow", description: "A soft, radiant light that illuminates the soul.", media: "/images/hero/1.webp" },
+                { title: "Golden Hour", description: "That fleeting moment when the world is dipped in gold.", media: "/images/hero/4.webp" },
+                { title: "Midnight Dreams", description: "Where reality fades and imagination takes flight.", media: "/images/hero/5.webp" },
+                { title: "Rose Mirage", description: "Lost in a desert of blooming dreams and endless horizons.", media: "/images/hero/2.webp" },
+                { title: "Silver Light", description: "A cool, metallic shimmer reflecting the urban pulse.", media: "/images/hero/6.webp" },
+                { title: "Velvet Mystique", description: "Wrapped in the deep, luxurious embrace of the night.", media: "/images/hero/3.webp" }
             ];
 
             // --- SHADERS ---
