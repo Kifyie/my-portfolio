@@ -1,5 +1,6 @@
 import React, { Suspense } from 'react';
 import { createRoot } from 'react-dom/client';
+import { Analytics } from '@vercel/analytics/react';
 import InfiniteGallery from '@/components/ui/3d-gallery-photography';
 import { Component as LuminaSlider } from '@/components/ui/lumina-interactive-list';
 import './css/gallery.css';
@@ -37,51 +38,54 @@ class ErrorBoundary extends React.Component<
 
 function GalleryApp() {
     return (
-        <ErrorBoundary
-            fallback={
-                <div
-                    style={{
-                        width: '100%',
-                        height: '100%',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        color: 'rgba(255,255,255,0.5)',
-                        fontFamily: "'Inter', sans-serif",
-                    }}
-                >
-                    <p>Gallery could not be loaded.</p>
-                </div>
-            }
-        >
-            <main style={{ position: 'relative', width: '100%', height: '100%' }}>
-                <div
-                    style={{
-                        position: 'absolute',
-                        inset: 0,
-                        pointerEvents: 'none',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        textAlign: 'center',
-                        padding: '0 12px',
-                        mixBlendMode: 'exclusion',
-                        color: '#ffffff',
-                    }}
-                >
-                    <h2
+        <>
+            <ErrorBoundary
+                fallback={
+                    <div
                         style={{
-                            fontFamily: "'Sail', cursive",
-                            fontSize: 'clamp(36px, 7vw, 84px)',
-                            letterSpacing: '0.02em',
-                            margin: 0,
+                            width: '100%',
+                            height: '100%',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            color: 'rgba(255,255,255,0.5)',
+                            fontFamily: "'Inter', sans-serif",
                         }}
                     >
-                        My Photography
-                    </h2>
-                </div>
-            </main>
-        </ErrorBoundary>
+                        <p>Gallery could not be loaded.</p>
+                    </div>
+                }
+            >
+                <main style={{ position: 'relative', width: '100%', height: '100%' }}>
+                    <div
+                        style={{
+                            position: 'absolute',
+                            inset: 0,
+                            pointerEvents: 'none',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            textAlign: 'center',
+                            padding: '0 12px',
+                            mixBlendMode: 'exclusion',
+                            color: '#ffffff',
+                        }}
+                    >
+                        <h2
+                            style={{
+                                fontFamily: "'Sail', cursive",
+                                fontSize: 'clamp(36px, 7vw, 84px)',
+                                letterSpacing: '0.02em',
+                                margin: 0,
+                            }}
+                        >
+                            My Photography
+                        </h2>
+                    </div>
+                </main>
+            </ErrorBoundary>
+            <Analytics />
+        </>
     );
 }
 
