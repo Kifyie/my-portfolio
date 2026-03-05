@@ -23,11 +23,15 @@
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://kifyie.pro/">
 
-    <!-- Resource Hints & SEO Script -->
+    <!-- Resource Hints & Preconnect -->
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://unpkg.com">
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
         as="style" onload="this.onload=null;this.rel='stylesheet'">
 
@@ -3416,7 +3420,7 @@
         </div>
     </div>
 
-    <!-- Anime.js -->
+    <!-- Anime.js (preloader only — load early) -->
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
 
     <!-- Preloader Script — Modo Style -->
@@ -3445,13 +3449,22 @@
         });
     </script>
 
-    <!-- GSAP & Lenis for Smooth Scrolling -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
-
-    <!-- Smooth scroll & parallax -->
-    <script defer src="/js/smooth-scroll.js"></script>
+    <!-- GSAP & Lenis — async sequential load (non-render-blocking) -->
+    <script>
+        (function () {
+            function loadScript(src) {
+                return new Promise(function (resolve, reject) {
+                    var s = document.createElement('script'); s.src = src; s.async = true;
+                    s.onload = resolve; s.onerror = reject; document.head.appendChild(s);
+                })
+            }
+            loadScript('https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js')
+                .then(function () { return loadScript('https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js') })
+                .then(function () { return loadScript('https://unpkg.com/lenis@1.1.18/dist/lenis.min.js') })
+                .then(function () { return loadScript('/js/smooth-scroll.js') })
+                .catch(function (e) { console.warn('Script load error:', e) });
+        })();
+    </script>
 
     <!-- Nav dropdown toggle -->
     <script defer type="module" src="/js/script.js"></script>
