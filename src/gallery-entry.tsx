@@ -1,6 +1,5 @@
 import React, { Suspense } from 'react';
 import { createRoot } from 'react-dom/client';
-import InfiniteGallery from '@/components/ui/3d-gallery-photography';
 import { Component as LuminaSlider } from '@/components/ui/lumina-interactive-list';
 import './css/gallery.css';
 
@@ -124,34 +123,34 @@ const cardStackItems: CardStackItem[] = [
         id: 1,
         title: "Voxura",
         description: "Pixel-art branding with cherry blossom aesthetics",
-        imageSrc: "/images/works/1.webp",
+        imageSrc: "/images/works/1.png",
         href: "https://discord.gg/VcjXCUn6NZ",
     },
     {
         id: 2,
         title: "Voxmov",
         description: "Premium logo & brand identity design",
-        imageSrc: "/images/works/2.webp",
+        imageSrc: "/images/works/2.png",
         href: "https://voxmov.live/",
     },
     {
         id: 3,
         title: "Voxani",
         description: "Sleek brand identity with emerald tones",
-        imageSrc: "/images/works/3.webp",
+        imageSrc: "/images/works/3.png",
         href: "https://voxani.live/",
     },
     {
         id: 4,
         title: "Anime m3u8 Scrapper",
         description: "Automated streaming data extraction tool",
-        imageSrc: "/images/works/4.webp",
+        imageSrc: "/images/works/4.png",
     },
     {
         id: 5,
         title: "Web IDE",
         description: "Real-time sync code editor in the browser",
-        imageSrc: "/images/works/5.webp",
+        imageSrc: "/images/works/5.png",
     },
 ];
 
