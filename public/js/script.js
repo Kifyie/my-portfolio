@@ -122,22 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
         labelObserver.observe(label);
     });
 
-    // Parallax effect for hero (subtle)
-    const hero = document.querySelector('.hero-content');
-
-    if (hero) {
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const heroHeight = window.innerHeight;
-
-            if (scrolled < heroHeight) {
-                const opacity = 1 - (scrolled / heroHeight) * 0.5;
-                const translateY = scrolled * 0.2;
-                hero.style.opacity = opacity;
-                hero.style.transform = `translateY(${translateY}px)`;
-            }
-        }, { passive: true });
-    }
+    // Hero parallax handled by GSAP in smooth-scroll.js — removed duplicate listener
 
     // Project card hover/touch effect
     const projectCards = document.querySelectorAll('.project-card');
@@ -261,6 +246,7 @@ document.addEventListener('DOMContentLoaded', () => {
             mouseY = Math.max(-maxYOffset, Math.min(maxYOffset, rawY));
         };
 
+        let trailRafId = null;
         const animate = () => {
             trailImages.forEach((item, index) => {
                 const speed = 0.02 + (index * 0.005);
@@ -270,11 +256,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 item.rotation += (targetRotation - item.rotation) * speed;
                 item.el.style.transform = `translateX(${item.x}px) translateY(${item.y}px) rotateZ(${item.rotation}deg)`;
             });
-            requestAnimationFrame(animate);
+            trailRafId = requestAnimationFrame(animate);
         };
 
         document.addEventListener('mousemove', handleMouseMove);
-        animate();
+
+        // Only run motion trail rAF loop when hero is visible
+        const heroObserver = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                if (!trailRafId) trailRafId = requestAnimationFrame(animate);
+            } else {
+                if (trailRafId) { cancelAnimationFrame(trailRafId); trailRafId = null; }
+            }
+        }, { rootMargin: '100px' });
+        heroObserver.observe(heroSection);
     };
 
     initImageMotionTrail();

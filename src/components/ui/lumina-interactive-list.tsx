@@ -369,16 +369,32 @@ export function Component() {
                     safeStartTimer(500);
                 }
 
-                // Throttle to ~30fps on mobile to reduce GPU load
+                // Throttle to ~30fps to reduce GPU load — pause when off-screen
                 let lastRenderTime = 0;
-                const TARGET_FRAME_TIME = isMobile ? 33 : 0; // ~30fps mobile, uncapped desktop
+                let renderRafId: number | null = null;
+                let isSliderVisible = true;
+                const TARGET_FRAME_TIME = 33; // ~30fps cap
                 const render = (time: number = 0) => {
-                    requestAnimationFrame(render);
+                    if (!isSliderVisible) { renderRafId = null; return; }
+                    renderRafId = requestAnimationFrame(render);
                     if (TARGET_FRAME_TIME && time - lastRenderTime < TARGET_FRAME_TIME) return;
                     lastRenderTime = time;
                     renderer.render(scene, camera);
                 };
-                render();
+
+                // Only render when hero slider is visible
+                const sliderEl = document.querySelector('.slider-wrapper');
+                if (sliderEl) {
+                    const visObs = new IntersectionObserver((entries) => {
+                        isSliderVisible = entries[0].isIntersecting;
+                        if (isSliderVisible && !renderRafId) {
+                            renderRafId = requestAnimationFrame(render);
+                        }
+                    }, { rootMargin: '100px' });
+                    visObs.observe(sliderEl);
+                }
+
+                renderRafId = requestAnimationFrame(render);
             };
 
             createSlidesNavigation(); updateCounter(0);

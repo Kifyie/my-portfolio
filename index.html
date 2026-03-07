@@ -2981,7 +2981,7 @@
                             </div>
                             <div class="tp-card-divider"></div>
                             <div class="tp-card-footer">
-                                <img class="tp-avatar" src="images/profiles/EpicVoxel.png" alt="EpicVoxel"
+                                <img class="tp-avatar" src="images/profiles/EpicVoxel.webp" alt="EpicVoxel"
                                     loading="lazy" decoding="async" width="48" height="48">
                                 <div class="tp-user-info">
                                     <span class="tp-user-name">EpicVoxel</span>
@@ -3001,7 +3001,7 @@
                                 </div>
                                 <div class="tp-card-divider"></div>
                                 <div class="tp-card-footer">
-                                    <img class="tp-avatar" src="images/profiles/Pranzal.png" alt="Pranzal"
+                                    <img class="tp-avatar" src="images/profiles/Pranzal.webp" alt="Pranzal"
                                         loading="lazy" decoding="async" width="48" height="48">
                                     <div class="tp-user-info">
                                         <span class="tp-user-name">Pranzal</span>
@@ -3026,7 +3026,7 @@
                             </div>
                             <div class="tp-card-divider"></div>
                             <div class="tp-card-footer">
-                                <img class="tp-avatar" src="images/profiles/Paalak.png" alt="Paalak" loading="lazy"
+                                <img class="tp-avatar" src="images/profiles/Paalak.webp" alt="Paalak" loading="lazy"
                                     decoding="async" width="48" height="48">
                                 <div class="tp-user-info">
                                     <span class="tp-user-name">Paalak</span>
@@ -3051,7 +3051,7 @@
                                 </div>
                                 <div class="tp-card-divider"></div>
                                 <div class="tp-card-footer">
-                                    <img class="tp-avatar" src="images/profiles/Hitesh.png" alt="Hitesh" loading="lazy"
+                                    <img class="tp-avatar" src="images/profiles/Hitesh.webp" alt="Hitesh" loading="lazy"
                                         decoding="async" width="48" height="48">
                                     <div class="tp-user-info">
                                         <span class="tp-user-name">Hitesh</span>
@@ -3069,7 +3069,7 @@
                             </div>
                             <div class="tp-card-divider"></div>
                             <div class="tp-card-footer">
-                                <img class="tp-avatar" src="images/profiles/Oxy.png" alt="Oxy" loading="lazy"
+                                <img class="tp-avatar" src="images/profiles/Oxy.webp" alt="Oxy" loading="lazy"
                                     decoding="async" width="48" height="48">
                                 <div class="tp-user-info">
                                     <span class="tp-user-name">Oxy</span>
@@ -3091,7 +3091,7 @@
                             </div>
                             <div class="tp-card-divider"></div>
                             <div class="tp-card-footer">
-                                <img class="tp-avatar" src="images/profiles/Ayan.png" alt="Ayan" loading="lazy"
+                                <img class="tp-avatar" src="images/profiles/Ayan.webp" alt="Ayan" loading="lazy"
                                     decoding="async" width="48" height="48">
                                 <div class="tp-user-info">
                                     <span class="tp-user-name">Ayan</span>
@@ -3116,7 +3116,7 @@
                             </div>
                             <div class="tp-card-divider"></div>
                             <div class="tp-card-footer">
-                                <img class="tp-avatar" src="images/profiles/Kush.png" alt="Kush" loading="lazy"
+                                <img class="tp-avatar" src="images/profiles/Kush.webp" alt="Kush" loading="lazy"
                                     decoding="async" width="48" height="48">
                                 <div class="tp-user-info">
                                     <span class="tp-user-name">Kush</span>
@@ -3138,7 +3138,7 @@
                                 </div>
                                 <div class="tp-card-divider"></div>
                                 <div class="tp-card-footer">
-                                    <img class="tp-avatar" src="images/profiles/Nich.png" alt="Nich" loading="lazy"
+                                    <img class="tp-avatar" src="images/profiles/Nich.webp" alt="Nich" loading="lazy"
                                         decoding="async" width="48" height="48">
                                     <div class="tp-user-info">
                                         <span class="tp-user-name">Nich</span>
@@ -3164,7 +3164,7 @@
                                 </div>
                                 <div class="tp-card-divider"></div>
                                 <div class="tp-card-footer">
-                                    <img class="tp-avatar" src="images/profiles/FireBlight.png" alt="Fireblight"
+                                    <img class="tp-avatar" src="images/profiles/FireBlight.webp" alt="Fireblight"
                                         loading="lazy" decoding="async" width="48" height="48">
                                     <div class="tp-user-info">
                                         <span class="tp-user-name">Fireblight</span>
@@ -3188,7 +3188,7 @@
                             </div>
                             <div class="tp-card-divider"></div>
                             <div class="tp-card-footer">
-                                <img class="tp-avatar" src="images/profiles/Batzy.png" alt="Batzy" loading="lazy"
+                                <img class="tp-avatar" src="images/profiles/Batzy.webp" alt="Batzy" loading="lazy"
                                     decoding="async" width="48" height="48">
                                 <div class="tp-user-info">
                                     <span class="tp-user-name">Batzy</span>
@@ -3212,7 +3212,7 @@
                             </div>
                             <div class="tp-card-divider"></div>
                             <div class="tp-card-footer">
-                                <img class="tp-avatar" src="images/profiles/Sid.png" alt="Sid" loading="lazy"
+                                <img class="tp-avatar" src="images/profiles/Sid.webp" alt="Sid" loading="lazy"
                                     decoding="async" width="48" height="48">
                                 <div class="tp-user-info">
                                     <span class="tp-user-name">Sid</span>
@@ -3527,6 +3527,7 @@
             const section = document.querySelector('.who-i-am');
             if (!section) return;
 
+            let wordHighlightTicking = false;
             function onScroll() {
                 const rect = section.getBoundingClientRect();
                 const vh = window.innerHeight;
@@ -3550,7 +3551,12 @@
                 });
             }
 
-            window.addEventListener('scroll', onScroll, { passive: true });
+            window.addEventListener('scroll', function () {
+                if (!wordHighlightTicking) {
+                    wordHighlightTicking = true;
+                    requestAnimationFrame(function () { onScroll(); wordHighlightTicking = false; });
+                }
+            }, { passive: true });
             onScroll(); // initial check
         })();
     </script>
@@ -3634,6 +3640,7 @@
             document.addEventListener('mouseleave', () => {
                 isVisible = false;
                 cursor.classList.remove('visible');
+                if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
             });
 
             document.addEventListener('mouseenter', () => {
@@ -3664,8 +3671,7 @@
                 }
             });
 
-            // Start the loop
-            startAnimation();
+            // Loop starts on first mousemove (no unconditional start)
         })();
     </script>
 
@@ -3819,17 +3825,30 @@
             var animWrapper = section.querySelector('.scroll-parallax-anim');
             if (animWrapper) animWrapper.style.position = 'relative';
 
-            window.addEventListener('scroll', onScroll, { passive: true });
+            var parallaxTicking = false;
+            window.addEventListener('scroll', function () {
+                if (!parallaxTicking) {
+                    parallaxTicking = true;
+                    requestAnimationFrame(function () { onScroll(); parallaxTicking = false; });
+                }
+            }, { passive: true });
             onScroll();
-
-            // Start animation loop
-            rafId = requestAnimationFrame(updateScene);
 
             // Set initial transform
             scene.style.transform =
                 'perspective(' + PERSPECTIVE + 'px) ' +
                 'translateY(' + INITIAL_Y + 'px) ' +
                 'rotateY(' + INITIAL_ROTATE + 'deg)';
+
+            // Only run rAF loop when section is visible
+            var parallaxObserver = new IntersectionObserver(function (entries) {
+                if (entries[0].isIntersecting) {
+                    if (!rafId) rafId = requestAnimationFrame(updateScene);
+                } else {
+                    if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+                }
+            }, { rootMargin: '100px' });
+            parallaxObserver.observe(section);
         })();
     </script>
 
