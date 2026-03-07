@@ -114,11 +114,12 @@
             z-index: 99999;
             mix-blend-mode: difference;
             opacity: 0;
-            transform: translate(-50%, -50%);
+            transform: translate3d(-50%, -50%, 0);
             will-change: transform;
             display: flex;
             align-items: center;
             justify-content: center;
+            contain: layout style;
         }
 
         .custom-cursor.visible {
@@ -3526,8 +3527,7 @@
             function animate() {
                 cursorX += (mouseX - cursorX) * lerp;
                 cursorY += (mouseY - cursorY) * lerp;
-                cursor.style.left = cursorX + 'px';
-                cursor.style.top = cursorY + 'px';
+                cursor.style.transform = 'translate3d(' + (cursorX - 65) + 'px,' + (cursorY - 65) + 'px, 0)';
                 rafId = requestAnimationFrame(animate);
             }
 
