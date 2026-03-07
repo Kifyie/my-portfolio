@@ -214,7 +214,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 wrapper.classList.add('touch-idle-animation');
             }
 
-            // Gyroscope animation loop (only runs if gyro is active)
+            // Gyroscope animation loop (only runs if gyro is active AND hero visible)
+            let gyroRafId = null;
             const animateGyro = () => {
                 if (gyroActive) {
                     trailImages.forEach((item, index) => {
@@ -224,9 +225,18 @@ document.addEventListener('DOMContentLoaded', () => {
                         item.el.style.transform = `translateX(${item.x}px) translateY(${item.y}px)`;
                     });
                 }
-                requestAnimationFrame(animateGyro);
+                gyroRafId = requestAnimationFrame(animateGyro);
             };
-            animateGyro();
+
+            // Only run gyro loop when hero is visible
+            const gyroObserver = new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting) {
+                    if (!gyroRafId) gyroRafId = requestAnimationFrame(animateGyro);
+                } else {
+                    if (gyroRafId) { cancelAnimationFrame(gyroRafId); gyroRafId = null; }
+                }
+            }, { rootMargin: '100px' });
+            gyroObserver.observe(heroSection);
             return; // Skip desktop mouse setup
         }
 
